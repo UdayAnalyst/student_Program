@@ -2,7 +2,9 @@
 // Needs ELEVENLABS_API_KEY; ELEVENLABS_VOICE_ID and ELEVENLABS_MODEL_ID are optional.
 // Without a key it answers 501 and the browser falls back to its built-in voice.
 // The key stays on the server; the browser only ever gets audio.
-const DEFAULT_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"; // the example voice in ElevenLabs' docs
+// Default: Bella (hpp4J3VqNfWAUOO0d1Us) — free built-in voice used for Launchpad read-overs.
+// Do not use ElevenLabs' docs example voice (George / JBFqnCBsd6RMkjVDRZzb) here.
+const DEFAULT_VOICE_ID = "hpp4J3VqNfWAUOO0d1Us"; // Bella
 const DEFAULT_MODEL_ID = "eleven_flash_v2_5"; // their lowest-latency model
 const MAX_CHARS = 1000; // answers are a few sentences; this also caps credit use per request
 
@@ -29,10 +31,10 @@ export async function POST(request: Request) {
 
   const voiceId = process.env.ELEVENLABS_VOICE_ID || DEFAULT_VOICE_ID;
   let res = await tts(voiceId);
-  // Free plans can't use Voice Library voices via the API (402). Fall back to the default
-  // premade voice so the assistant still speaks with ElevenLabs.
+  // Free plans can't use Voice Library voices via the API (402). Fall back to Bella
+  // (the Launchpad default) so the assistant still speaks with the intended voice.
   if (res.status === 402 && voiceId !== DEFAULT_VOICE_ID) {
-    console.warn(`[tts] voice ${voiceId} needs a paid ElevenLabs plan; using the default voice instead`);
+    console.warn(`[tts] voice ${voiceId} needs a paid ElevenLabs plan; using Bella (${DEFAULT_VOICE_ID}) instead`);
     res = await tts(DEFAULT_VOICE_ID);
   }
 
