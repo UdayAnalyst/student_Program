@@ -3,8 +3,19 @@ import { levelForYear, type OpportunityType } from "@/lib/types";
 
 const base = "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium";
 
-export function DeadlineBadge({ deadline }: { deadline: string | null }) {
-  if (!deadline) return <span className={`${base} bg-ok-soft text-ok`}>Rolling</span>;
+// Without a deadline, shows the verified status instead, e.g. "Open now" or "Opens Jan 11".
+export function DeadlineBadge({ deadline, status }: { deadline: string | null; status?: string }) {
+  if (!deadline) {
+    const text = status ?? "Rolling";
+    const tone = /^open now|^rolling/i.test(text)
+      ? "bg-ok-soft text-ok"
+      : /^opens/i.test(text)
+        ? "bg-accent-soft text-accent"
+        : /^not open/i.test(text)
+          ? "bg-warn-soft text-warn"
+          : "bg-subtle text-muted";
+    return <span className={`${base} shrink-0 ${tone}`}>{text}</span>;
+  }
 
   const days = daysUntil(deadline);
   let label = `Due ${formatDate(deadline)}`;

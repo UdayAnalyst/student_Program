@@ -1,4 +1,5 @@
 import { welcomeText } from "@/lib/alerts";
+import { opportunities } from "@/lib/opportunities";
 import { sendSms } from "@/lib/sms";
 import { upsertSubscriber } from "@/lib/subscribers";
 import { CLASS_LEVELS, OPPORTUNITY_TYPES, type ClassLevel, type OpportunityType } from "@/lib/types";
@@ -13,6 +14,7 @@ export async function POST(request: Request) {
     phone?: unknown;
     levels?: unknown;
     types?: unknown;
+    watch?: unknown;
   } | null;
 
   const phone = typeof body?.phone === "string" ? body.phone : "";
@@ -26,8 +28,11 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Pick freshman or sophomore." }, { status: 400 });
   }
 
-  const sub = await upsertSubscriber({ phone, levels, types });
-  const message = welcomeText(sub);
+  // Optional: a specific program to be notified about ("Notify me" button).
+  const watched = typeof body?.watch === "string" ? opportunities.find((o) => o.id === body.watch) : undefined;
+
+  const sub = await upsertSubscriber({ phone, levels, types, watchIds: watched ? [watched.id] : [] });
+  const message = welcomeText(sub, watched);
   try {
     const { dryRun } = await sendSms(phone, message, { essential: false });
     return Response.json({ ok: true, dryRun, messages: [message] });

@@ -2,11 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { toggle } from "@/lib/filters";
-import { CLASS_LEVELS, OPPORTUNITY_TYPES, type ClassLevel, type OpportunityType } from "@/lib/types";
+import {
+  CLASS_LEVELS,
+  OPPORTUNITY_TYPES,
+  type ClassLevel,
+  type Opportunity,
+  type OpportunityType,
+} from "@/lib/types";
+import { useWatchlist } from "@/lib/useWatchlist";
 import { TYPE_LABELS } from "./Badges";
+import { ComingSoonTab, LOCKED_YEARS } from "./ComingSoonTab";
 import { PhonePreview } from "./PhonePreview";
 
-type Props = { onClose: () => void };
+// `watch`: opened from a program's "Notify me" button; subscribes to that program opening.
+type Props = { onClose: () => void; watch?: Opportunity };
 
 async function post<T>(url: string, payload: unknown): Promise<T> {
   const res = await fetch(url, {
@@ -26,7 +35,8 @@ function formatPhone(raw: string) {
   return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
 }
 
-export function SmsSignupModal({ onClose }: Props) {
+export function SmsSignupModal({ onClose, watch }: Props) {
+  const { watch: rememberWatch } = useWatchlist();
   const [phone, setPhone] = useState("");
   const [levels, setLevels] = useState<ClassLevel[]>(["freshman"]);
   const [types, setTypes] = useState<OpportunityType[]>([]);
@@ -56,7 +66,9 @@ export function SmsSignupModal({ onClose }: Props) {
         phone: `+1${digits}`,
         levels,
         types,
+        watch: watch?.id,
       });
+      if (watch) rememberWatch(watch.id);
       setTexts(data.messages);
       setDryRun(data.dryRun);
       setState("done");
@@ -103,7 +115,8 @@ export function SmsSignupModal({ onClose }: Props) {
             <div className="mx-auto grid size-12 place-items-center rounded-full bg-ok-soft text-xl text-ok">✓</div>
             <h2 id="sms-title" className="mt-4 text-xl font-semibold">You&apos;re subscribed</h2>
             <p className="mt-1 text-sm text-muted">
-              We&apos;ll text <span className="font-medium text-ink">{phone}</span> when new {classLabel} opportunities open.
+              We&apos;ll text <span className="font-medium text-ink">{phone}</span>{" "}
+              {watch ? `as soon as ${watch.title} opens.` : `when new ${classLabel} opportunities open.`}
             </p>
             {dryRun && texts.length > 1 && (
               <p className="mx-auto mt-3 w-fit rounded-full bg-warn-soft px-3 py-1 text-xs font-medium text-warn">
@@ -125,12 +138,16 @@ export function SmsSignupModal({ onClose }: Props) {
           </div>
         ) : (
           <form onSubmit={submit}>
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent">SMS alerts</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+              {watch ? "🔔 Notify me" : "SMS alerts"}
+            </p>
             <h2 id="sms-title" className="mt-1 text-2xl font-semibold tracking-tight">
-              Never miss a deadline
+              {watch ? `Get a text when ${watch.title} opens` : "Never miss a deadline"}
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Our agent watches for new openings and texts you only the ones you&apos;re eligible for.
+              {watch
+                ? `${watch.company} isn't accepting applications yet.${watch.applyWindow ? ` ${watch.applyWindow}.` : ""} We'll text you the moment it opens.`
+                : "Our agent watches for new openings and texts you only the ones you're eligible for."}
             </p>
 
             <label className="mt-6 block text-sm font-medium" htmlFor="phone">
@@ -170,6 +187,9 @@ export function SmsSignupModal({ onClose }: Props) {
                     </button>
                   );
                 })}
+                {LOCKED_YEARS.map(({ label, sub }) => (
+                  <ComingSoonTab key={label} label={label} sub={sub} className="rounded-xl p-3" />
+                ))}
               </div>
             </fieldset>
 

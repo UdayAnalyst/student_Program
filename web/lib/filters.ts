@@ -6,6 +6,7 @@ export type Filters = {
   types: OpportunityType[]; // empty = any
   remoteOnly: boolean;
   paidOnly: boolean;
+  acceptingOnly: boolean;
   query: string;
 };
 
@@ -14,6 +15,7 @@ export const EMPTY_FILTERS: Filters = {
   types: [],
   remoteOnly: false,
   paidOnly: false,
+  acceptingOnly: false,
   query: "",
 };
 
@@ -30,12 +32,19 @@ export function applyFilters(list: Opportunity[], f: Filters) {
         !q ||
         [o.title, o.company, o.location, ...o.tags].some((s) => s.toLowerCase().includes(q)),
     )
-    .sort(byDeadline);
+    .filter((o) => !f.acceptingOnly || o.accepting !== false)
+    // Programs taking applications now come first, then soonest deadline.
+    .sort((a, b) => Number(a.accepting === false) - Number(b.accepting === false) || byDeadline(a, b));
 }
 
 export function isFiltered(f: Filters) {
   return (
-    f.gradYears.length > 0 || f.types.length > 0 || f.remoteOnly || f.paidOnly || f.query !== ""
+    f.gradYears.length > 0 ||
+    f.types.length > 0 ||
+    f.remoteOnly ||
+    f.paidOnly ||
+    f.acceptingOnly ||
+    f.query !== ""
   );
 }
 

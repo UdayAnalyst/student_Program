@@ -3,6 +3,7 @@
 import { EMPTY_FILTERS, isFiltered, toggle, type Filters } from "@/lib/filters";
 import { CLASS_LEVELS, OPPORTUNITY_TYPES } from "@/lib/types";
 import { TYPE_LABELS } from "./Badges";
+import { ComingSoonTab, LOCKED_YEARS } from "./ComingSoonTab";
 
 type Props = {
   filters: Filters;
@@ -43,7 +44,7 @@ export function FilterBar({ filters, onChange, resultCount }: Props) {
           />
         </label>
 
-        <div role="group" aria-label="Class year" className="flex rounded-xl border border-line bg-surface p-1">
+        <div role="group" aria-label="Class year" className="grid grid-cols-4 gap-1 rounded-xl border border-line bg-surface p-1">
           {YEAR_OPTIONS.map(({ year, label, sub }) => {
             const active = filters.gradYears.includes(year);
             return (
@@ -51,7 +52,7 @@ export function FilterBar({ filters, onChange, resultCount }: Props) {
                 key={year}
                 aria-pressed={active}
                 onClick={() => set({ gradYears: toggle(filters.gradYears, year) })}
-                className={`flex-1 rounded-lg px-4 py-1.5 text-left text-sm transition lg:flex-none ${
+                className={`rounded-lg px-3 py-1.5 text-left text-sm transition sm:px-4 ${
                   active ? "bg-accent text-on-accent shadow-sm" : "text-ink hover:bg-subtle"
                 }`}
               >
@@ -62,6 +63,9 @@ export function FilterBar({ filters, onChange, resultCount }: Props) {
               </button>
             );
           })}
+          {LOCKED_YEARS.map(({ label, sub }) => (
+            <ComingSoonTab key={label} label={label} sub={sub} className="rounded-lg px-3 py-1.5 text-sm sm:px-4" />
+          ))}
         </div>
       </div>
 
@@ -77,6 +81,9 @@ export function FilterBar({ filters, onChange, resultCount }: Props) {
         </Chip>
         <Chip active={filters.paidOnly} onClick={() => set({ paidOnly: !filters.paidOnly })}>
           Paid
+        </Chip>
+        <Chip active={filters.acceptingOnly} onClick={() => set({ acceptingOnly: !filters.acceptingOnly })}>
+          Accepting now
         </Chip>
 
         <div className="ml-auto flex items-center gap-3 text-sm">

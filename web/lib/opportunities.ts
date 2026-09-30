@@ -5,7 +5,7 @@ import type { Opportunity } from "./types";
 
 // Real listings come from the scraper (see lib/scraped.ts). The mock file pads the demo
 // with realistic examples; set this to false once the scraper covers enough programs.
-const INCLUDE_MOCK = true;
+const INCLUDE_MOCK = false;
 
 export const opportunities: Opportunity[] = [
   ...scrapedOpportunities,

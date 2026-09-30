@@ -1,4 +1,4 @@
-import { daysUntil, formatDate } from "@/lib/dates";
+import { formatDate } from "@/lib/dates";
 import { CLASS_LEVELS, type Opportunity } from "@/lib/types";
 import { PhonePreview, type SmsMessage } from "./PhonePreview";
 
@@ -10,7 +10,7 @@ type Props = {
 export function Hero({ opportunities, onGetAlerts }: Props) {
   const freshman = opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.freshman));
   const sophomore = opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.sophomore));
-  const closingSoon = opportunities.filter((o) => o.deadline && daysUntil(o.deadline) <= 7);
+  const companies = new Set(opportunities.map((o) => o.company)).size;
 
   const first = freshman[0];
   const remote = freshman.find((o) => o.remote);
@@ -47,7 +47,7 @@ export function Hero({ opportunities, onGetAlerts }: Props) {
           </h1>
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">
             Stop scrolling past &ldquo;juniors and seniors only.&rdquo; Every listing here is checked for Class of 2029
-            and 2030 eligibility, with deadlines front and center.
+            and 2030 eligibility, straight from each company&apos;s posting.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -71,7 +71,7 @@ export function Hero({ opportunities, onGetAlerts }: Props) {
           <dl className="mt-10 grid max-w-md grid-cols-3 gap-6">
             <Stat value={freshman.length} label="for freshmen" />
             <Stat value={sophomore.length} label="for sophomores" />
-            <Stat value={closingSoon.length} label="closing this week" accent />
+            <Stat value={companies} label="companies" />
           </dl>
         </div>
 

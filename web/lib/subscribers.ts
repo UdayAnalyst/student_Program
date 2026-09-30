@@ -23,9 +23,10 @@ async function saveAll(list: Subscriber[]) {
 export async function upsertSubscriber(sub: Omit<Subscriber, "sentIds" | "createdAt">) {
   const list = await listSubscribers();
   const existing = list.find((s) => s.phone === sub.phone);
+  const watchIds = [...new Set([...(existing?.watchIds ?? []), ...(sub.watchIds ?? [])])];
   const next: Subscriber = existing
-    ? { ...existing, levels: sub.levels, types: sub.types }
-    : { ...sub, sentIds: [], createdAt: new Date().toISOString() };
+    ? { ...existing, levels: sub.levels, types: sub.types, watchIds }
+    : { ...sub, watchIds, sentIds: [], createdAt: new Date().toISOString() };
   await saveAll([...list.filter((s) => s.phone !== sub.phone), next]);
   return next;
 }

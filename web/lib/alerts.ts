@@ -1,6 +1,6 @@
 import { formatDate } from "./dates";
 import { byDeadline, isOpen, opportunities } from "./opportunities";
-import { CLASS_LEVELS, type Subscriber } from "./types";
+import { CLASS_LEVELS, type Opportunity, type Subscriber } from "./types";
 
 const MAX_PER_TEXT = 3;
 
@@ -10,6 +10,7 @@ export function matchesFor(sub: Subscriber) {
   const years: number[] = sub.levels.map((l) => CLASS_LEVELS[l]);
   return opportunities
     .filter((o) => isOpen(o))
+    .filter((o) => o.accepting !== false) // only text programs taking applications now
     .filter((o) => o.gradYears.some((y) => years.includes(y)))
     .filter((o) => sub.types.length === 0 || sub.types.includes(o.type))
     .filter((o) => !sub.sentIds.includes(o.id))
@@ -20,7 +21,11 @@ function classLabel(sub: Subscriber) {
   return sub.levels.map((l) => `Class of ${CLASS_LEVELS[l]}`).join(" & ");
 }
 
-export function welcomeText(sub: Subscriber) {
+export function welcomeText(sub: Subscriber, watched?: Opportunity) {
+  if (watched) {
+    const when = watched.applyWindow ? ` (${watched.applyWindow.charAt(0).toLowerCase()}${watched.applyWindow.slice(1)})` : "";
+    return `Launchpad: We'll text you the moment ${watched.title} at ${watched.company} starts accepting applications${when}. Reply STOP to opt out.`;
+  }
   return `Launchpad: You're subscribed to alerts for ${classLabel(sub)}. We'll text you when new opportunities open. Reply STOP to opt out.`;
 }
 
