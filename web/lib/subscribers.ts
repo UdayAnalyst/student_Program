@@ -2,10 +2,14 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { Subscriber } from "./types";
 
-// Local JSON file store, fine for a hackathon demo on one machine.
-// .data/ is gitignored so phone numbers never get committed.
-// For a deployed site, swap these three functions for a real database.
-const FILE = path.join(process.cwd(), ".data", "subscribers.json");
+// JSON file store, fine for a hackathon demo. Locally it lives in .data/ (gitignored so
+// phone numbers never get committed). Vercel's filesystem is read-only except /tmp, and
+// /tmp isn't shared between server instances, so saving is best-effort there: the demo
+// sends everything it needs with each request instead of relying on this store.
+// For real alerts in production, swap these functions for a database (e.g. Upstash Redis).
+const FILE = process.env.VERCEL
+  ? path.join("/tmp", "launchpad-subscribers.json")
+  : path.join(process.cwd(), ".data", "subscribers.json");
 
 export async function listSubscribers(): Promise<Subscriber[]> {
   try {
@@ -16,8 +20,13 @@ export async function listSubscribers(): Promise<Subscriber[]> {
 }
 
 async function saveAll(list: Subscriber[]) {
-  await fs.mkdir(path.dirname(FILE), { recursive: true });
-  await fs.writeFile(FILE, JSON.stringify(list, null, 2));
+  try {
+    await fs.mkdir(path.dirname(FILE), { recursive: true });
+    await fs.writeFile(FILE, JSON.stringify(list, null, 2));
+  } catch (err) {
+    // Don't break sign-ups when the host can't write files.
+    console.warn(`[subscribers] could not save (${(err as Error).message})`);
+  }
 }
 
 export async function upsertSubscriber(sub: Omit<Subscriber, "sentIds" | "createdAt">) {
