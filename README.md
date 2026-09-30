@@ -1,5 +1,6 @@
 # student_Program
-link: https://student-program-nine.vercel.app/
+link: student-program-nine.vercel.app
+
 
 ## Tech pre-internship program scraper
 
