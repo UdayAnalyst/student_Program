@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* Design tokens. Change the palette here and every component follows. */
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --subtle: #efede7;
+  --ink: #16151c;
+  --muted: #6b6a75;
+  --line: #e4e1d8;
+  --accent: #5b3df5;
+  --accent-soft: #ece8ff;
+  --on-accent: #ffffff;
+  --danger: #d23b3b;
+  --danger-soft: #fdeaea;
+  --warn: #a86400;
+  --warn-soft: #fff1d6;
+  --ok: #1d8656;
+  --ok-soft: #e1f4ea;
+  --avatar-bg-l: 0.94;
+  --avatar-fg-l: 0.45;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e12;
+    --surface: #17171d;
+    --subtle: #22222a;
+    --ink: #f2f1f6;
+    --muted: #9b9aa7;
+    --line: #2a2a33;
+    --accent: #8f7bff;
+    --accent-soft: #2a2350;
+    --on-accent: #ffffff;
+    --danger: #ff7070;
+    --danger-soft: #3a1b1e;
+    --warn: #f2b453;
+    --warn-soft: #362812;
+    --ok: #4fcb8f;
+    --ok-soft: #13301f;
+    --avatar-bg-l: 0.3;
+    --avatar-fg-l: 0.85;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-fade: fade 0.2s ease-out both;
+  --animate-drawer: drawer 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-bubble: bubble 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade {
+    from { opacity: 0; }
+  }
+  @keyframes drawer {
+    from { transform: translateX(100%); }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  }
+  @keyframes bubble {
+    from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
