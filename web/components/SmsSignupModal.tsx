@@ -113,7 +113,7 @@ export function SmsSignupModal({ onClose, watch }: Props) {
         {state === "done" ? (
           <div className="text-center">
             <div className="mx-auto grid size-12 place-items-center rounded-full bg-ok-soft text-xl text-ok">✓</div>
-            <h2 id="sms-title" className="mt-4 text-xl font-semibold">You&apos;re subscribed</h2>
+            <h2 id="sms-title" className="mt-4 font-serif text-3xl font-light">You&apos;re subscribed</h2>
             <p className="mt-1 text-sm text-muted">
               We&apos;ll text <span className="font-medium text-ink">{phone}</span>{" "}
               {watch ? `as soon as ${watch.title} opens.` : `when new ${classLabel} opportunities open.`}
@@ -141,7 +141,7 @@ export function SmsSignupModal({ onClose, watch }: Props) {
             <p className="text-xs font-semibold uppercase tracking-wider text-accent">
               {watch ? "🔔 Notify me" : "SMS alerts"}
             </p>
-            <h2 id="sms-title" className="mt-1 text-2xl font-semibold tracking-tight">
+            <h2 id="sms-title" className="mt-2 font-serif text-3xl font-light leading-[1.1] tracking-tight">
               {watch ? `Get a text when ${watch.title} opens` : "Never miss a deadline"}
             </h2>
             <p className="mt-2 text-sm text-muted">

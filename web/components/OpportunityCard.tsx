@@ -12,23 +12,35 @@ type Props = {
   onToggleSave: () => void;
   onNotify?: () => void; // shown for programs not accepting applications yet
   watching?: boolean;
+  index?: number; // editorial numbering, e.g. "01"
 };
 
-export function OpportunityCard({ opportunity: o, status, onOpen, onToggleSave, onNotify, watching }: Props) {
+export function OpportunityCard({
+  opportunity: o,
+  status,
+  onOpen,
+  onToggleSave,
+  onNotify,
+  watching,
+  index,
+}: Props) {
   return (
-    <article className="group relative flex flex-col gap-4 rounded-2xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-accent/25">
+    <article className="group relative flex w-full flex-col gap-4 rounded-md border border-line bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:border-ink hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.25)] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ink">
       <div className="flex items-start gap-3">
         <CompanyAvatar name={o.company} logo={o.logo} />
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm text-muted">
-            {o.company}
-            {o.companyFocus && <span className="opacity-70"> · {o.companyFocus}</span>}
+          <p className="truncate text-xs text-muted">
+            {index !== undefined && (
+              <span className="mr-2 font-mono text-[11px]">{String(index).padStart(2, "0")}</span>
+            )}
+            <span className="font-medium text-ink">{o.company}</span>
+            {o.companyFocus && <span> · {o.companyFocus}</span>}
           </p>
-          <h3 className="font-semibold leading-snug">
+          <h3 className="mt-1 font-serif text-[1.35rem] font-normal leading-[1.15] tracking-tight">
             {/* Stretched button: the whole card opens the drawer */}
             <button
               onClick={onOpen}
-              className="text-left after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none"
+              className="text-left after:absolute after:inset-0 after:rounded-md focus-visible:outline-none"
             >
               {o.title}
             </button>
@@ -38,7 +50,7 @@ export function OpportunityCard({ opportunity: o, status, onOpen, onToggleSave, 
           onClick={onToggleSave}
           aria-pressed={!!status}
           aria-label={status ? "Remove from saved" : "Save"}
-          className={`relative z-10 grid size-9 shrink-0 place-items-center rounded-full border transition ${
+          className={`relative z-10 grid size-9 shrink-0 place-items-center rounded-md border transition ${
             status
               ? "border-accent bg-accent text-on-accent"
               : "border-line text-muted hover:border-accent hover:text-accent"
@@ -105,7 +117,7 @@ export function NotifyButton({
       onClick={onClick}
       disabled={watching}
       aria-pressed={watching}
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+      className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition ${
         watching ? "bg-ok-soft text-ok" : "bg-ink text-bg hover:opacity-90"
       } ${className}`}
     >

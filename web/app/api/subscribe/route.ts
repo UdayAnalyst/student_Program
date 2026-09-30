@@ -1,4 +1,4 @@
-import { welcomeText } from "@/lib/alerts";
+import { siteUrl, welcomeText } from "@/lib/alerts";
 import { opportunities } from "@/lib/opportunities";
 import { sendSms } from "@/lib/sms";
 import { upsertSubscriber } from "@/lib/subscribers";
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   const watched = typeof body?.watch === "string" ? opportunities.find((o) => o.id === body.watch) : undefined;
 
   const sub = await upsertSubscriber({ phone, levels, types, watchIds: watched ? [watched.id] : [] });
-  const message = welcomeText(sub, watched);
+  const message = welcomeText(sub, siteUrl(request), watched);
   try {
     const { dryRun } = await sendSms(phone, message, { essential: false });
     return Response.json({ ok: true, dryRun, messages: [message] });

@@ -48,7 +48,13 @@ export const REMOVED: Record<string, string> = {
 // company's page; "past cycles" come from previous years' postings and may shift.
 export const CORRECTIONS: Record<string, Partial<Opportunity>> = {
   // Accepting now
-  "citadel-discover-citadel": { accepting: true, deadline: "2027-03-05", location: "New York, NY" },
+  "citadel-discover-citadel": {
+    accepting: true,
+    deadline: "2027-03-05",
+    location: "New York, NY",
+    // the scraped quote ended with an outdated "Deadline: December."
+    gradYearEvidence: "Must be a first-year or second-year to apply (December 2027 – June 2029 graduation date).",
+  },
   "mlt-management-leadership-for-tomorrow-mlt-career-prep-class-of-2029": { accepting: true, deadline: "2027-01-15" },
   "optiver-quantitative-intern-summer-2027-sophomore-standing-grad-dec-2027-jun-2029": {
     accepting: true,

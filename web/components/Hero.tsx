@@ -1,91 +1,147 @@
-import { formatDate } from "@/lib/dates";
+"use client";
+
+import { useCountUp } from "@/lib/useCountUp";
 import { CLASS_LEVELS, type Opportunity } from "@/lib/types";
-import { PhonePreview, type SmsMessage } from "./PhonePreview";
 
 type Props = {
   opportunities: Opportunity[]; // open only, sorted by deadline
   onGetAlerts: () => void;
 };
 
+// Editorial hero: a centered two-line tagline, a black film-grain "poster" with giant type,
+// and a caption row underneath. Motion: the headline lines rise in from a mask, the grain
+// flickers, a shaft of light sweeps, a spotlight follows the cursor, and the stats count up.
 export function Hero({ opportunities, onGetAlerts }: Props) {
-  const freshman = opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.freshman));
-  const sophomore = opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.sophomore));
-  const companies = new Set(opportunities.map((o) => o.company)).size;
+  const total = useCountUp(opportunities.length, 1400, 1000);
+  const accepting = useCountUp(opportunities.filter((o) => o.accepting).length, 1400, 1100);
+  const freshman = useCountUp(
+    opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.freshman)).length,
+    1400,
+    1200,
+  );
+  const sophomore = useCountUp(
+    opportunities.filter((o) => o.gradYears.includes(CLASS_LEVELS.sophomore)).length,
+    1400,
+    1300,
+  );
+  const companies = useCountUp(new Set(opportunities.map((o) => o.company)).size, 1400, 1400);
 
-  const first = freshman[0];
-  const remote = freshman.find((o) => o.remote);
-  const messages: SmsMessage[] = [];
-  if (first)
-    messages.push({
-      from: "agent",
-      text: `New for Class of 2030: ${first.title} at ${first.company}${
-        first.deadline ? `, closes ${formatDate(first.deadline)}` : ""
-      }. Apply → link`,
-    });
-  messages.push({ from: "me", text: "anything remote?" });
-  messages.push({
-    from: "agent",
-    text: remote ? `Yes: ${remote.title} (${remote.company}) is fully remote.` : "Nothing remote right now. I'll text you when one opens.",
-  });
+  function trackSpotlight(e: React.MouseEvent<HTMLDivElement>) {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }
 
   return (
-    <section className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-accent/15 blur-3xl"
-      />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:pt-20">
-        <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted">
-            <span className="size-1.5 animate-pulse rounded-full bg-ok" />
-            Recruiting season is open · {opportunities.length} opportunities live
-          </p>
-          <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            Tech opportunities
-            <br />
-            built for <span className="text-accent">underclassmen.</span>
-          </h1>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">
-            Stop scrolling past &ldquo;juniors and seniors only.&rdquo; Every listing here is checked for Class of 2029
-            and 2030 eligibility, straight from each company&apos;s posting.
-          </p>
+    <section className="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6 sm:pt-24">
+      <p className="animate-fade-up text-center text-lg leading-snug sm:text-xl">
+        <span className="font-medium">Tech opportunities built for</span>
+        <br />
+        <span className="font-serif font-light italic">freshmen &amp; sophomores</span>
+      </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#feed"
-              className="inline-flex h-12 items-center rounded-xl bg-ink px-6 font-semibold text-bg transition hover:opacity-90"
-            >
-              Browse opportunities
-            </a>
-            <button
-              onClick={onGetAlerts}
-              className="inline-flex h-12 items-center gap-2 rounded-xl border border-line bg-surface px-6 font-semibold transition hover:border-accent hover:text-accent"
-            >
-              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
-                <path strokeLinejoin="round" d="M4 5h16v11H9l-5 4V5Z" />
-              </svg>
-              Get text alerts
-            </button>
+      <div
+        onMouseMove={trackSpotlight}
+        style={{ animationDelay: "120ms" }}
+        className="group animate-fade-up relative mt-12 overflow-hidden rounded-md bg-[#0a0a0a] text-white sm:mt-20"
+      >
+        {/* flickering film grain */}
+        <div
+          aria-hidden
+          className="grain animate-grain pointer-events-none absolute -inset-[10%] opacity-35 mix-blend-screen"
+        />
+        {/* a slow-sweeping diagonal shaft of light */}
+        <div
+          aria-hidden
+          className="animate-sweep pointer-events-none absolute inset-y-0 -inset-x-1/4 bg-[linear-gradient(118deg,transparent_48%,rgba(255,255,255,0.07)_48%,rgba(255,255,255,0.07)_64%,transparent_64%)]"
+        />
+        {/* spotlight that follows the cursor */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background:
+              "radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.11), transparent 60%)",
+          }}
+        />
+
+        <div className="relative flex min-h-[520px] flex-col justify-between gap-10 p-5 sm:min-h-[640px] sm:p-8">
+          <div
+            style={{ animationDelay: "300ms" }}
+            className="animate-fade-down flex justify-between text-[11px] font-semibold uppercase tracking-[0.12em] text-white/60"
+          >
+            <span>Launchpad</span>
+            <span>Class of 2029 &amp; 2030</span>
           </div>
 
-          <dl className="mt-10 grid max-w-md grid-cols-3 gap-6">
-            <Stat value={freshman.length} label="for freshmen" />
-            <Stat value={sophomore.length} label="for sophomores" />
-            <Stat value={companies} label="companies" />
-          </dl>
-        </div>
+          <h1
+            aria-label="You're not too early."
+            className="font-display text-[clamp(3.6rem,13.5vw,11rem)] font-black leading-[0.82] tracking-[-0.055em] [word-spacing:0.1em]"
+          >
+            <MaskedLine delay={350}>You&apos;re not</MaskedLine>
+            <MaskedLine delay={520}>
+              too early
+              <span aria-hidden style={{ animationDelay: "1150ms" }} className="animate-pop-in inline-block">
+                .
+              </span>
+            </MaskedLine>
+          </h1>
 
-        <PhonePreview messages={messages} className="hidden lg:block" />
+          <div
+            style={{ animationDelay: "850ms" }}
+            className="animate-fade-up flex flex-wrap items-end justify-between gap-6"
+          >
+            <p className="max-w-md font-serif text-lg font-light leading-snug text-white/80 sm:text-xl">
+              Stop scrolling past &ldquo;juniors and seniors only.&rdquo; Every program here takes first- and
+              second-year students, and we checked each one by hand.
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={onGetAlerts}
+                className="rounded-md bg-white px-4 py-2.5 text-sm font-medium text-black transition hover:-translate-y-0.5 hover:bg-white/90"
+              >
+                Get text alerts
+              </button>
+              <a
+                href="#feed"
+                className="group/explore inline-flex items-center gap-3 rounded-md border border-white/25 px-4 py-2.5 text-sm transition hover:bg-white/10"
+              >
+                Explore
+                <span
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover/explore:-translate-y-0.5 group-hover/explore:translate-x-0.5"
+                >
+                  ↗
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{ animationDelay: "1000ms" }}
+        className="animate-fade-up mt-3 flex items-baseline justify-between gap-6 text-sm"
+      >
+        <p>
+          <span className="font-semibold tabular-nums">{total} programs</span>{" "}
+          <span className="font-serif text-[15px] tabular-nums text-ink/80">
+            {accepting} accepting now · {freshman} for freshmen · {sophomore} for sophomores · {companies} companies.
+          </span>
+        </p>
+        <span className="font-mono text-xs text-muted">01</span>
       </div>
     </section>
   );
 }
 
-function Stat({ value, label, accent }: { value: number; label: string; accent?: boolean }) {
+// One headline line that slides up from behind a mask.
+function MaskedLine({ children, delay }: { children: React.ReactNode; delay: number }) {
   return (
-    <div className="flex flex-col-reverse">
-      <dt className="mt-0.5 text-sm text-muted">{label}</dt>
-      <dd className={`text-3xl font-semibold tabular-nums ${accent ? "text-danger" : ""}`}>{value}</dd>
-    </div>
+    <span aria-hidden className="block overflow-hidden pb-[0.08em] pt-[0.04em]">
+      <span className="animate-rise block" style={{ animationDelay: `${delay}ms` }}>
+        {children}
+      </span>
+    </span>
   );
 }
