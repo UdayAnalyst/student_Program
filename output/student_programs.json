@@ -1,0 +1,50 @@
+[
+  {
+    "company_name": "Goldman Sachs",
+    "program_name": "Emerging Leaders Series",
+    "target_audience": "All",
+    "target_year": "Sophomore",
+    "field": "Finance/Quant",
+    "application_link": "https://recruiting360.avature.net/candidates/Projectdetailinvitations?projectId=26455",
+    "status": "Open",
+    "description": "The Emerging Leaders Series prepares second-year undergraduate and master's students for future internship opportunities at Goldman Sachs. Through business-specific training, interview preparation, networking, and engagement with senior leaders, participants develop the skills and insights to…",
+    "source_url": "https://www.goldmansachs.com/careers/students/programs-and-internships/americas/emerging-leaders-series",
+    "scraped_at": "2026-09-30T15:50:23+00:00"
+  },
+  {
+    "company_name": "Jane Street",
+    "program_name": "Jane Street Bridge",
+    "target_audience": "Undergraduate",
+    "target_year": "Sophomore",
+    "field": "Finance/Quant",
+    "application_link": "https://www.janestreet.com/apply-bridge-ldn/",
+    "status": "Open",
+    "description": "Explore the inner workings of our business in this daylong program for first- and second-year university students. You'll spend the day focusing on one of two tracks — Strategy and Product or Institutional Sales and Trading — depending on where you join us.",
+    "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/bridge/",
+    "scraped_at": "2026-09-30T15:50:09+00:00"
+  },
+  {
+    "company_name": "Break Through Tech",
+    "program_name": "Break Through Tech",
+    "target_audience": "Undergraduate",
+    "target_year": "All",
+    "field": "Tech/Software",
+    "application_link": "https://breakthroughtech.applytojob.com/apply/",
+    "status": "Unknown",
+    "description": "Break Through Tech is expanding access to career pathways for undergraduate students pursuing tech careers.",
+    "source_url": "https://www.breakthroughtech.org/",
+    "scraped_at": "2026-09-30T15:50:09+00:00"
+  },
+  {
+    "company_name": "EY",
+    "program_name": "EY Internships & Student Programs",
+    "target_audience": "Graduate",
+    "target_year": "All",
+    "field": "Tech/Software",
+    "application_link": "https://www.ey.com/en_us/careers/virtual-events-for-students",
+    "status": "Unknown",
+    "description": "Whether you’re an undergraduate, MBA candidate or advanced degree student, our summer and winter internships are designed to help kick-start your career. From exceptional experiences and new relationships to learning and development opportunities, we are committed to helping you succeed.",
+    "source_url": "https://www.ey.com/en_us/careers/internships-student-programs",
+    "scraped_at": "2026-09-30T15:50:14+00:00"
+  }
+]
