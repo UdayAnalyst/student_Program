@@ -11,6 +11,16 @@ export type SendResult = { dryRun: boolean; id?: string };
 // `essential: false` marks nice-to-have texts (e.g. the welcome) that skip the free
 // Textbelt quota so the one free daily text goes to the actual opportunities alert.
 // Server-only: imported by app/api/* routes.
+// True when texts would really be sent (not demo / dry-run). Used to keep the API from
+// texting numbers that never signed up.
+export function smsIsLive() {
+  const p = process.env.SMS_PROVIDER;
+  if (p === "demo") return false;
+  if (p === "whatsapp" || p === "textbelt") return true;
+  const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER } = process.env;
+  return Boolean(TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN && TWILIO_FROM_NUMBER);
+}
+
 export async function sendSms(
   to: string,
   body: string,

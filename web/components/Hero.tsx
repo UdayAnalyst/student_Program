@@ -76,7 +76,7 @@ export function Hero({ opportunities, onGetAlerts }: Props) {
 
           <h1
             aria-label="You're not too early."
-            className="font-display text-[clamp(3.6rem,13.5vw,11rem)] font-black leading-[0.82] tracking-[-0.055em] [word-spacing:0.1em]"
+            className="font-display text-[clamp(2.75rem,14.5vw,11rem)] font-black leading-[0.82] tracking-[-0.055em] [word-spacing:0.1em]"
           >
             <MaskedLine delay={350}>You&apos;re not</MaskedLine>
             <MaskedLine delay={520}>

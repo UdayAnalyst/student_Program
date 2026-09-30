@@ -82,12 +82,15 @@ export const CORRECTIONS: Record<string, Partial<Opportunity>> = {
     applyWindow: "Registration opens January 11, 2027",
     applyWindowSource: "official",
   },
+  // Capital One's pages say second-year only; the scraper labeled both freshman/sophomore.
   "capital-one-capital-one-s-early-internship-program": {
+    gradYears: [2029],
     accepting: false,
     applyWindow: "Usually opens December–January",
     applyWindowSource: "past cycles",
   },
   "capital-one-capital-one-s-tech-summit": {
+    gradYears: [2029],
     accepting: false,
     applyWindow: "Sessions run in May, August, and January; email TechEE@capitalone.com to register interest",
     applyWindowSource: "official",

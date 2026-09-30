@@ -40,11 +40,11 @@ export function FilterBar({ filters, onChange, resultCount }: Props) {
             value={filters.query}
             onChange={(e) => set({ query: e.target.value })}
             placeholder="Search companies, roles, locations…"
-            className="h-12 w-full rounded-xl border border-line bg-surface pl-10 pr-4 text-sm outline-none transition placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15"
+            className="h-12 w-full rounded-xl border border-line bg-surface pl-10 pr-4 text-base outline-none sm:text-sm transition placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/15"
           />
         </label>
 
-        <div role="group" aria-label="Class year" className="grid grid-cols-4 gap-1 rounded-xl border border-line bg-surface p-1">
+        <div role="group" aria-label="Class year" className="grid grid-cols-2 gap-1 rounded-xl border border-line bg-surface p-1 sm:grid-cols-4">
           {YEAR_OPTIONS.map(({ year, label, sub }) => {
             const active = filters.gradYears.includes(year);
             return (
@@ -106,7 +106,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
     <button
       aria-pressed={active}
       onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-sm transition ${
+      className={`min-h-9 rounded-full border px-3 py-1.5 text-sm transition ${
         active
           ? "border-ink bg-ink text-bg"
           : "border-line bg-surface text-muted hover:border-ink/40 hover:text-ink"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { applyFilters, EMPTY_FILTERS, type Filters } from "@/lib/filters";
 import type { Opportunity } from "@/lib/types";
 import { useSaved } from "@/lib/useSaved";
@@ -10,6 +10,7 @@ import { FilterBar } from "./FilterBar";
 import { Hero } from "./Hero";
 import { OpportunityCard } from "./OpportunityCard";
 import { Reveal } from "./Reveal";
+import { VoiceAssistant } from "./VoiceAssistant";
 import { SmsSignupModal } from "./SmsSignupModal";
 
 export function Explorer({
@@ -26,6 +27,16 @@ export function Explorer({
   const { saved, toggleSaved, setStatus } = useSaved();
   const { isWatching } = useWatchlist();
 
+  // The floating "Text me new ones" button waits until you've scrolled past the hero, which
+  // has its own "Get text alerts" button (on phones it would otherwise cover the hero).
+  const [showFab, setShowFab] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowFab(window.scrollY > window.innerHeight * 0.9);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const open = useMemo(() => applyFilters(opportunities, EMPTY_FILTERS), [opportunities]);
   const results = useMemo(() => applyFilters(opportunities, filters), [opportunities, filters]);
   const selected = opportunities.find((o) => o.id === selectedId);
@@ -41,12 +52,19 @@ export function Explorer({
     <>
       <Hero opportunities={open} onGetAlerts={() => setAlerts({})} />
 
+      <VoiceAssistant
+        opportunities={opportunities}
+        onOpenProgram={setSelectedId}
+        onNotify={(o) => setAlerts({ watch: o })}
+        isWatching={isWatching}
+      />
+
       <section id="feed" className="mx-auto w-full max-w-6xl scroll-mt-16 px-4 pb-28 sm:px-6">
         <Reveal className="mt-24 flex items-end justify-between gap-4 pb-6">
           <h2 className="font-serif text-4xl font-light leading-none tracking-tight sm:text-6xl">
             The programs<span className="italic text-muted">.</span>
           </h2>
-          <span className="font-mono text-xs text-muted">02</span>
+          <span className="font-mono text-xs text-muted">03</span>
         </Reveal>
         <FilterBar filters={filters} onChange={setFilters} resultCount={results.length} />
 
@@ -91,7 +109,11 @@ export function Explorer({
       {/* Floating alerts button, always within reach while scrolling the feed */}
       <button
         onClick={() => setAlerts({})}
-        className="fixed bottom-5 right-5 z-30 inline-flex h-11 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium text-bg shadow-[0_6px_24px_rgba(0,0,0,0.25)] transition hover:opacity-90"
+        aria-hidden={!showFab}
+        tabIndex={showFab ? 0 : -1}
+        className={`fixed bottom-5 right-5 z-30 inline-flex h-11 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium text-bg shadow-[0_6px_24px_rgba(0,0,0,0.25)] transition duration-300 hover:opacity-90 ${
+          showFab ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
+        }`}
       >
         <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
           <path strokeLinejoin="round" d="M4 5h16v11H9l-5 4V5Z" />
