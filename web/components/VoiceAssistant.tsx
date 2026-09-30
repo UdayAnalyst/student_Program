@@ -35,6 +35,62 @@ const EXAMPLES = [
   "Anything for women in tech?",
 ];
 
+// Where the conversation is: waiting for a request, picking among matches, or deciding
+// whether to apply to the focused program.
+type Phase = "idle" | "choosing" | "deciding";
+
+const HINTS: Record<Phase, string> = {
+  idle: "Tell me what you're looking for",
+  choosing: "Say “the first one”, a company name, or “none of these”",
+  deciding: "Say “yes”, “tell me more”, or “go back”",
+};
+
+// ---- Understanding spoken replies ---------------------------------------------------------
+
+const ORDINALS: [RegExp, number | "last"][] = [
+  [/\b(first|1st|number one|option one)\b/, 0],
+  [/\b(second|2nd|number two|option two)\b/, 1],
+  [/\b(third|3rd|number three|option three)\b/, 2],
+  [/\b(last|final)\b/, "last"],
+];
+const GENERIC = new Set(
+  // "one" matters: otherwise "the first one" would match Capital One.
+  "program programs internship intern summer class early career careers the and for with company group trading technology tech launch one".split(" "),
+);
+const isNone = (t: string) => /\b(none|neither|nothing|not these|none of (these|them)|something else)\b/.test(t);
+const isMore = (t: string) => /\b(more|details?|tell me|info|information|learn|explain)\b/.test(t);
+const isNo = (t: string) => /\b(no|nope|nah|not|back|other|others|different|another)\b/.test(t);
+const isYes = (t: string) => /\b(yes|yeah|yep|yup|sure|apply|continue|let'?s|go for it|sounds good|okay|ok|please|do it)\b/.test(t);
+const wordCount = (t: string) => t.trim().split(/\s+/).length;
+
+// "the second one", "Optiver", "the NVIDIA one" → which match they mean.
+function pickMatch(text: string, matches: AdvisorMatch[], byId: Map<string, Opportunity>) {
+  const t = text.toLowerCase();
+  const byName = matches.find((m) => {
+    const o = byId.get(m.id);
+    if (!o) return false;
+    const name = `${o.company} ${o.title}`;
+    // Acronyms count even when short ("EA", "HRT", "IMC"); other words need 3+ letters.
+    const acronyms = (name.match(/\b[A-Z]{2,}\b/g) ?? []).map((a) => a.toLowerCase());
+    const words = name
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((w) => w.length >= 3 && !GENERIC.has(w))
+      .concat(acronyms);
+    return words.some((w) => new RegExp(`\\b${w}\\b`).test(t));
+  });
+  if (byName) return byName;
+  for (const [re, idx] of ORDINALS) {
+    if (re.test(t)) return matches[idx === "last" ? matches.length - 1 : idx];
+  }
+  if (/\b(one|1)\b/.test(t) && !/\bthis one\b/.test(t)) return matches[0];
+  if (/\b(two|2)\b/.test(t)) return matches[1];
+  if (/\b(three|3)\b/.test(t)) return matches[2];
+  return undefined;
+}
+
+const ORDINAL_WORDS = ["First", "Second", "Third"];
+
 type Props = {
   opportunities: Opportunity[];
   onOpenProgram: (id: string) => void;
@@ -43,7 +99,8 @@ type Props = {
 };
 
 // Talk (or type) what you're looking for; the advisor (Claude, via /api/assistant) suggests
-// programs, summarizes each, and walks you to applying for the one you pick.
+// programs and summarizes each. Tapping the mic starts a hands-free conversation: after each
+// spoken reply it listens again, so you can pick a program and decide whether to apply by voice.
 export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatching }: Props) {
   const [query, setQuery] = useState("");
   const [listening, setListening] = useState(false);
@@ -55,18 +112,45 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
   const [focusId, setFocusId] = useState<string | null>(null);
   const [speakOn, setSpeakOn] = useState(true);
   const [voice, setVoice] = useState<"elevenlabs" | "browser" | null>(null); // which voice spoke last
+  const [phase, setPhaseState] = useState<Phase>("idle");
+  const [convo, setConvo] = useState(false); // hands-free conversation active
+  const [lastHeard, setLastHeard] = useState<string | null>(null);
+  const [applyNudge, setApplyNudge] = useState(false); // highlight Apply when a popup was blocked
+
   const recognizer = useRef<Recognizer | null>(null);
   const heard = useRef("");
   const audio = useRef<HTMLAudioElement | null>(null);
   const speakSeq = useRef(0);
+  // Mirrors of state for async callbacks (speech ending, recognizer ending).
+  const convoRef = useRef(false);
+  const phaseRef = useRef<Phase>("idle");
+  const resultRef = useRef<AdvisorResult | null>(null);
+  const focusRef = useRef<string | null>(null);
+  const speakOnRef = useRef(true);
+
+  const byId = new Map(opportunities.map((o) => [o.id, o]));
+  const matches = (result?.matches ?? []).filter((m) => byId.has(m.id));
+  const focused = matches.find((m) => m.id === focusId);
 
   useEffect(() => {
     return () => {
+      convoRef.current = false;
       recognizer.current?.stop();
       audio.current?.pause();
       window.speechSynthesis?.cancel();
     };
   }, []);
+
+  function setPhase(p: Phase) {
+    phaseRef.current = p;
+    setPhaseState(p);
+  }
+
+  function currentMatches() {
+    return (resultRef.current?.matches ?? []).filter((m) => byId.has(m.id));
+  }
+
+  // ---- Speaking ----------------------------------------------------------------------------
 
   // Stops whatever is being read aloud (ElevenLabs audio or the browser voice).
   function stopSpeaking() {
@@ -77,11 +161,13 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
   }
 
   // Reads text aloud with the ElevenLabs voice (via /api/tts, so the API key stays on the
-  // server). Falls back to the browser's built-in voice if ElevenLabs isn't set up or fails.
-  async function speak(text: string) {
+  // server), falling back to the browser's built-in voice. `then` runs when it finishes
+  // speaking (or right away when muted), which is how the conversation keeps going.
+  async function speak(text: string, then?: () => void) {
     stopSpeaking();
-    if (!speakOn) return;
     const seq = speakSeq.current; // a newer speak()/stop wins over audio still loading
+    const done = () => seq === speakSeq.current && then?.();
+    if (!speakOnRef.current) return done();
     try {
       const res = await fetch("/api/tts", {
         method: "POST",
@@ -92,7 +178,10 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
         const url = URL.createObjectURL(await res.blob());
         if (seq !== speakSeq.current) return URL.revokeObjectURL(url);
         const a = new Audio(url);
-        a.onended = () => URL.revokeObjectURL(url);
+        a.onended = () => {
+          URL.revokeObjectURL(url);
+          done();
+        };
         audio.current = a;
         await a.play();
         setVoice("elevenlabs");
@@ -101,45 +190,25 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
     } catch {
       // network error or autoplay blocked: use the browser voice below
     }
-    if (seq !== speakSeq.current || !("speechSynthesis" in window)) return;
+    if (seq !== speakSeq.current) return;
+    if (!("speechSynthesis" in window)) return done();
     const u = new SpeechSynthesisUtterance(text);
     u.rate = 1.02;
+    u.onend = done;
     window.speechSynthesis.speak(u);
     setVoice("browser");
   }
 
-  async function ask(text: string) {
-    const q = text.trim();
-    if (q.length < 3 || loading) return;
-    setLoading(true);
-    setError(null);
-    setFocusId(null);
-    stopSpeaking();
-    try {
-      const res = await fetch("/api/assistant", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: q }),
-      });
-      const data = (await res.json()) as ({ ok: true } & AdvisorResult) | { ok: false; error: string };
-      if (!data.ok) throw new Error(data.error);
-      setResult(data);
-      speak(`${data.reply} ${data.followUp}`);
-    } catch (err) {
-      setError((err as Error).message || "Something went wrong. Try again.");
-    } finally {
-      setLoading(false);
-    }
+  // After the assistant finishes talking, listen for the reply if we're in a conversation.
+  function thenListen() {
+    if (convoRef.current) listen();
   }
 
-  function toggleMic() {
-    if (listening) {
-      recognizer.current?.stop();
-      return;
-    }
+  // ---- Listening ---------------------------------------------------------------------------
+
+  function listen() {
     const Ctor = recognizerCtor();
     if (!Ctor) return;
-
     stopSpeaking();
     const rec = new Ctor();
     rec.lang = "en-US";
@@ -150,32 +219,177 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
       let text = "";
       for (let i = 0; i < e.results.length; i++) text += e.results[i][0].transcript;
       heard.current = text;
-      setQuery(text);
+      if (phaseRef.current === "idle") setQuery(text);
+      else setLastHeard(text);
     };
     rec.onerror = (e) => {
-      if (e.error === "not-allowed") setError("Microphone access was blocked. Allow it in your browser, or type instead.");
-      else if (e.error !== "no-speech" && e.error !== "aborted") setError("Didn't catch that. Try again or type instead.");
+      if (e.error === "not-allowed") {
+        setError("Microphone access was blocked. Allow it in your browser, or type instead.");
+        endConversation();
+      } else if (e.error !== "no-speech" && e.error !== "aborted") {
+        setError("Didn't catch that. Tap the mic to try again, or type instead.");
+      }
     };
     rec.onend = () => {
       setListening(false);
-      if (heard.current.trim().length >= 3) ask(heard.current); // voice-first: submit when you stop talking
+      const text = heard.current.trim();
+      if (text.length >= 2 && convoRef.current) handleHeard(text);
+      else if (convoRef.current) endConversation("I didn't hear anything, so I stopped listening. Tap the mic to keep talking.");
     };
     recognizer.current = rec;
     setError(null);
-    setQuery("");
     setListening(true);
     rec.start();
   }
 
-  const byId = new Map(opportunities.map((o) => [o.id, o]));
-  const matches = (result?.matches ?? []).filter((m) => byId.has(m.id));
-  const focused = matches.find((m) => m.id === focusId);
+  function toggleMic() {
+    if (convoRef.current || listening) {
+      endConversation();
+      return;
+    }
+    convoRef.current = true;
+    setConvo(true);
+    setApplyNudge(false);
+    if (phaseRef.current === "idle") setQuery("");
+    listen();
+  }
+
+  function endConversation(message?: string) {
+    convoRef.current = false;
+    setConvo(false);
+    recognizer.current?.stop();
+    setListening(false);
+    if (message) setError(message);
+  }
+
+  // ---- The conversation --------------------------------------------------------------------
+
+  function handleHeard(raw: string) {
+    const text = raw.toLowerCase();
+    setLastHeard(raw);
+    const list = currentMatches();
+
+    if (phaseRef.current === "choosing") {
+      if (isNone(text)) return noneOfThese();
+      const m = pickMatch(text, list, byId);
+      if (m) return focus(m);
+      if (wordCount(text) >= 3) return ask(raw);
+      return speak("Sorry, which one? You can say the first, second, or third one.", thenListen);
+    }
+
+    if (phaseRef.current === "deciding") {
+      if (isMore(text)) return showDetails();
+      if (isNone(text) || isNo(text)) return backToMatches();
+      if (isYes(text)) return applyNow();
+      const m = pickMatch(text, list, byId);
+      if (m && m.id !== focusRef.current) return focus(m);
+      if (wordCount(text) >= 3) return ask(raw);
+      return speak("Would you like to apply? You can say yes, tell me more, or go back.", thenListen);
+    }
+
+    return ask(raw);
+  }
+
+  async function ask(text: string) {
+    const q = text.trim();
+    if (q.length < 3 || loading) return;
+    setLoading(true);
+    setError(null);
+    setFocusId(null);
+    focusRef.current = null;
+    setApplyNudge(false);
+    setQuery(q);
+    stopSpeaking();
+    try {
+      const res = await fetch("/api/assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q }),
+      });
+      const data = (await res.json()) as ({ ok: true } & AdvisorResult) | { ok: false; error: string };
+      if (!data.ok) throw new Error(data.error);
+      resultRef.current = data;
+      setResult(data);
+      setPhase(data.matches.length ? "choosing" : "idle");
+      speak(`${data.reply} ${data.followUp}`, thenListen);
+    } catch (err) {
+      setError((err as Error).message || "Something went wrong. Try again.");
+      endConversation();
+    } finally {
+      setLoading(false);
+    }
+  }
 
   function focus(m: AdvisorMatch) {
-    setFocusId(m.id);
     const o = byId.get(m.id)!;
-    speak(`${o.title} at ${o.company}. ${m.programSummary} Would you like to continue to apply for this position?`);
+    focusRef.current = m.id;
+    setFocusId(m.id);
+    setApplyNudge(false);
+    setPhase("deciding");
+    const status = o.accepting ? "" : " It isn't accepting applications yet.";
+    speak(
+      `${o.title} at ${o.company}. ${m.companySummary} ${m.programSummary}${status} Would you like to continue to apply for this position?`,
+      thenListen,
+    );
   }
+
+  function backToMatches() {
+    const list = currentMatches();
+    focusRef.current = null;
+    setFocusId(null);
+    setPhase("choosing");
+    const spoken = list.map((m, i) => `${ORDINAL_WORDS[i] ?? "Next"}, ${byId.get(m.id)!.title} at ${byId.get(m.id)!.company}.`).join(" ");
+    speak(`No problem. Your matches are: ${spoken} Which one would you like to focus on?`, thenListen);
+  }
+
+  function noneOfThese() {
+    focusRef.current = null;
+    setFocusId(null);
+    setPhase("idle");
+    setQuery("");
+    speak("No problem. Tell me what else you're interested in.", thenListen);
+  }
+
+  function showDetails() {
+    const id = focusRef.current;
+    if (!id) return;
+    endConversation();
+    onOpenProgram(id);
+    speak("Here are the full details. Tap Apply when you're ready.");
+  }
+
+  function applyNow() {
+    const id = focusRef.current;
+    const o = id ? byId.get(id) : undefined;
+    if (!o) return;
+    endConversation();
+    if (!o.accepting) {
+      onNotify(o);
+      speak("It isn't open yet, so I've opened the text alert sign-up. We'll text you the moment it opens.");
+      return;
+    }
+    const w = window.open(o.url, "_blank");
+    if (w) {
+      w.opener = null;
+      speak(`Opening the application for ${o.title}. Good luck!`);
+    } else {
+      // Voice isn't a click, so some browsers block the new tab: point to the button instead.
+      setApplyNudge(true);
+      speak("Your browser blocked opening a new tab. Tap the highlighted Apply button to continue.");
+    }
+  }
+
+  // ---- UI ----------------------------------------------------------------------------------
+
+  const micLabel = !supported
+    ? "Voice isn't supported in this browser. Type instead."
+    : listening
+      ? "Listening… tap to stop"
+      : convo
+        ? loading
+          ? "Thinking…"
+          : "Talking… tap to stop"
+        : "Tap to talk";
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 sm:px-6">
@@ -189,20 +403,31 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
       <Reveal className="rounded-md border border-line bg-surface p-5 sm:p-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
           {/* Mic */}
-          <div className="flex flex-col items-center gap-2 sm:w-40">
+          <div className="flex flex-col items-center gap-2 sm:w-44">
             <button
               onClick={toggleMic}
-              disabled={!supported || loading}
-              aria-pressed={listening}
-              aria-label={listening ? "Stop recording" : "Start recording"}
+              disabled={!supported}
+              aria-pressed={convo}
+              aria-label={convo ? "End voice conversation" : "Start voice conversation"}
               className="relative grid size-24 place-items-center rounded-full bg-ink text-bg transition hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {listening && <span aria-hidden className="absolute inset-0 animate-ping rounded-full bg-ink/40" />}
+              {convo && !listening && <span aria-hidden className="absolute -inset-1.5 rounded-full border-2 border-ink/30" />}
               <MicIcon className="relative size-9" />
             </button>
             <p className="text-center text-xs text-muted" aria-live="polite">
-              {!supported ? "Voice isn't supported in this browser. Type instead." : listening ? "Listening… tap to stop" : "Tap to talk"}
+              {micLabel}
             </p>
+            {convo && (
+              <p className="rounded-md bg-subtle px-2.5 py-1.5 text-center text-xs leading-snug text-ink">
+                {HINTS[phase]}
+              </p>
+            )}
+            {convo && (
+              <button onClick={() => endConversation()} className="text-xs text-muted underline underline-offset-2 hover:text-ink">
+                End conversation
+              </button>
+            )}
           </div>
 
           {/* Text + examples */}
@@ -236,7 +461,8 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
               <button
                 type="button"
                 onClick={() => {
-                  setSpeakOn((s) => !s);
+                  speakOnRef.current = !speakOnRef.current;
+                  setSpeakOn(speakOnRef.current);
                   stopSpeaking();
                 }}
                 aria-pressed={speakOn}
@@ -250,16 +476,18 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
                 <button
                   key={ex}
                   type="button"
-                  onClick={() => {
-                    setQuery(ex);
-                    ask(ex);
-                  }}
+                  onClick={() => ask(ex)}
                   className="rounded-full border border-line px-3 py-1.5 text-left text-xs text-muted transition hover:border-ink hover:text-ink"
                 >
                   &ldquo;{ex}&rdquo;
                 </button>
               ))}
             </div>
+            {lastHeard && convo && phase !== "idle" && (
+              <p className="mt-3 text-sm text-muted">
+                You said: <span className="font-serif italic text-ink">&ldquo;{lastHeard}&rdquo;</span>
+              </p>
+            )}
             {error && <p className="mt-3 text-sm text-danger">{error}</p>}
           </form>
         </div>
@@ -308,7 +536,7 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
             const o = byId.get(focused.id)!;
             return (
               <div className="animate-fade-up mt-8 border-t border-line pt-6">
-                <button onClick={() => setFocusId(null)} className="text-sm text-muted hover:text-ink">
+                <button onClick={backToMatches} className="text-sm text-muted hover:text-ink">
                   ← Back to your matches
                 </button>
                 <div className="mt-4 flex items-center gap-4">
@@ -355,16 +583,14 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
                         href={o.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-medium text-bg transition hover:opacity-90"
+                        className={`inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-medium text-bg transition hover:opacity-90 ${
+                          applyNudge ? "animate-pulse ring-4 ring-ink/30" : ""
+                        }`}
                       >
                         Yes, continue to apply <span aria-hidden>↗</span>
                       </a>
                     ) : (
-                      <NotifyButton
-                        watching={isWatching(o.id)}
-                        onClick={() => onNotify(o)}
-                        className="h-10 px-4 text-sm"
-                      />
+                      <NotifyButton watching={isWatching(o.id)} onClick={() => onNotify(o)} className="h-10 px-4 text-sm" />
                     )}
                     <button
                       onClick={() => onOpenProgram(o.id)}
@@ -373,16 +599,14 @@ export function VoiceAssistant({ opportunities, onOpenProgram, onNotify, isWatch
                       See full details
                     </button>
                     <button
-                      onClick={() => setFocusId(null)}
+                      onClick={backToMatches}
                       className="rounded-md px-4 py-2.5 text-sm text-muted transition hover:text-ink"
                     >
                       No, show my other matches
                     </button>
                   </div>
                   {!o.accepting && (
-                    <p className="mt-3 text-xs text-muted">
-                      It isn&apos;t open yet, so we&apos;ll text you the moment applications open.
-                    </p>
+                    <p className="mt-3 text-xs text-muted">It isn&apos;t open yet, so we&apos;ll text you the moment applications open.</p>
                   )}
                 </div>
               </div>
