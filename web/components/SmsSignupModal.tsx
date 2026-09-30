@@ -46,6 +46,7 @@ export function SmsSignupModal({ onClose, watch }: Props) {
   const [texts, setTexts] = useState<string[]>([]); // messages the agent sent this number
   const [dryRun, setDryRun] = useState(true);
   const [alerting, setAlerting] = useState(false);
+  const [sentIds, setSentIds] = useState<string[]>([]); // programs already texted, so none repeat
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -83,9 +84,15 @@ export function SmsSignupModal({ onClose, watch }: Props) {
     setAlerting(true);
     setError(null);
     try {
-      const data = await post<{ dryRun: boolean; message: string | null }>("/api/notify", {
+      // Send the profile and what's been shown so far, so this works even if the server
+      // couldn't save the sign-up (Vercel's filesystem is read-only).
+      const data = await post<{ dryRun: boolean; message: string | null; ids?: string[] }>("/api/notify", {
         phone: `+1${digits}`,
+        levels,
+        types,
+        sentIds,
       });
+      setSentIds((ids) => [...ids, ...(data.ids ?? [])]);
       setTexts((t) => [...t, data.message ?? "You're all caught up. We'll text you when something new opens."]);
       setDryRun(data.dryRun);
     } catch (err) {
