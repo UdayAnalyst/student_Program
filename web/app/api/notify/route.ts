@@ -1,4 +1,4 @@
-import { alertText, matchesFor } from "@/lib/alerts";
+import { alertText, matchesFor, siteUrl } from "@/lib/alerts";
 import { sendSms } from "@/lib/sms";
 import { listSubscribers, markSent } from "@/lib/subscribers";
 
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       results.push({ phone: sub.phone, message: null, dryRun: true });
       continue;
     }
-    const message = alertText(sub, matches);
+    const message = alertText(sub, matches, siteUrl(request));
     try {
       const { dryRun } = await sendSms(sub.phone, message);
       await markSent(sub.phone, matches.slice(0, 3).map((o) => o.id));

@@ -9,11 +9,18 @@ import { DetailDrawer } from "./DetailDrawer";
 import { FilterBar } from "./FilterBar";
 import { Hero } from "./Hero";
 import { OpportunityCard } from "./OpportunityCard";
+import { Reveal } from "./Reveal";
 import { SmsSignupModal } from "./SmsSignupModal";
 
-export function Explorer({ opportunities }: { opportunities: Opportunity[] }) {
+export function Explorer({
+  opportunities,
+  initialProgramId,
+}: {
+  opportunities: Opportunity[];
+  initialProgramId?: string; // from a "See details" link in a text
+}) {
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initialProgramId ?? null);
   // SMS sign-up modal: {} = general alerts, { watch } = "Notify me" for one program.
   const [alerts, setAlerts] = useState<{ watch?: Opportunity } | null>(null);
   const { saved, toggleSaved, setStatus } = useSaved();
@@ -23,7 +30,11 @@ export function Explorer({ opportunities }: { opportunities: Opportunity[] }) {
   const results = useMemo(() => applyFilters(opportunities, filters), [opportunities, filters]);
   const selected = opportunities.find((o) => o.id === selectedId);
 
-  const closeDrawer = useCallback(() => setSelectedId(null), []);
+  const closeDrawer = useCallback(() => {
+    setSelectedId(null);
+    // Drop ?program= so a refresh doesn't reopen the drawer.
+    if (window.location.search.includes("program=")) window.history.replaceState(null, "", "/");
+  }, []);
   const closeAlerts = useCallback(() => setAlerts(null), []);
 
   return (
@@ -31,13 +42,20 @@ export function Explorer({ opportunities }: { opportunities: Opportunity[] }) {
       <Hero opportunities={open} onGetAlerts={() => setAlerts({})} />
 
       <section id="feed" className="mx-auto w-full max-w-6xl scroll-mt-16 px-4 pb-28 sm:px-6">
+        <Reveal className="mt-24 flex items-end justify-between gap-4 pb-6">
+          <h2 className="font-serif text-4xl font-light leading-none tracking-tight sm:text-6xl">
+            The programs<span className="italic text-muted">.</span>
+          </h2>
+          <span className="font-mono text-xs text-muted">02</span>
+        </Reveal>
         <FilterBar filters={filters} onChange={setFilters} resultCount={results.length} />
 
         {results.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {results.map((o) => (
+            {results.map((o, i) => (
+              <Reveal key={o.id} delay={(i % 3) * 90} className="flex min-w-0">
               <OpportunityCard
-                key={o.id}
+                index={i + 1}
                 opportunity={o}
                 status={saved[o.id]}
                 onOpen={() => setSelectedId(o.id)}
@@ -45,6 +63,7 @@ export function Explorer({ opportunities }: { opportunities: Opportunity[] }) {
                 onNotify={() => setAlerts({ watch: o })}
                 watching={isWatching(o.id)}
               />
+              </Reveal>
             ))}
           </div>
         ) : (
@@ -72,7 +91,7 @@ export function Explorer({ opportunities }: { opportunities: Opportunity[] }) {
       {/* Floating alerts button, always within reach while scrolling the feed */}
       <button
         onClick={() => setAlerts({})}
-        className="fixed bottom-5 right-5 z-30 inline-flex h-12 items-center gap-2 rounded-full bg-accent px-5 font-semibold text-on-accent shadow-xl shadow-accent/30 transition hover:brightness-110"
+        className="fixed bottom-5 right-5 z-30 inline-flex h-11 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium text-bg shadow-[0_6px_24px_rgba(0,0,0,0.25)] transition hover:opacity-90"
       >
         <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
           <path strokeLinejoin="round" d="M4 5h16v11H9l-5 4V5Z" />

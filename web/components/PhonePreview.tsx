@@ -1,5 +1,18 @@
 export type SmsMessage = { from: "agent" | "me"; text: string };
 
+// Makes URLs in a text message tappable, like a real phone does.
+function Linkified({ text }: { text: string }) {
+  return text.split(/(https?:\/\/\S+)/).map((part, i) =>
+    /^https?:\/\//.test(part) ? (
+      <a key={i} href={part} className="break-all underline underline-offset-2 hover:opacity-70">
+        {part}
+      </a>
+    ) : (
+      part
+    ),
+  );
+}
+
 // Decorative phone mockup showing what an alert thread looks like.
 export function PhonePreview({ messages, className = "" }: { messages: SmsMessage[]; className?: string }) {
   return (
@@ -23,7 +36,7 @@ export function PhonePreview({ messages, className = "" }: { messages: SmsMessag
                   : "self-end rounded-br-md bg-accent text-on-accent"
               }`}
             >
-              {m.text}
+              <Linkified text={m.text} />
             </li>
           ))}
         </ol>

@@ -54,7 +54,7 @@ export function DetailDrawer({ opportunity: o, status, onClose, onSetStatus, onN
             <CompanyAvatar name={o.company} logo={o.logo} size="lg" />
             <div className="min-w-0">
               <p className="text-sm text-muted">{o.company}</p>
-              <h2 id="drawer-title" className="text-xl font-semibold leading-tight tracking-tight">
+              <h2 id="drawer-title" className="font-serif text-[1.75rem] font-normal leading-[1.1] tracking-tight">
                 {o.title}
               </h2>
             </div>

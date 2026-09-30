@@ -1,46 +1,35 @@
 @import "tailwindcss";
 
-/* Design tokens. Change the palette here and every component follows. */
+/* Design tokens. Editorial monochrome: black on white, a grotesk for labels and a light
+   serif for headlines. Change the palette here and every component follows. */
 :root {
-  --bg: #f7f6f2;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --subtle: #efede7;
-  --ink: #16151c;
-  --muted: #6b6a75;
-  --line: #e4e1d8;
-  --accent: #5b3df5;
-  --accent-soft: #ece8ff;
+  --subtle: #f2f2f1;
+  --ink: #080808;
+  --muted: #6e6e6e;
+  --line: #e5e5e5;
+  --accent: #080808;
+  --accent-soft: #f0f0ef;
   --on-accent: #ffffff;
-  --danger: #d23b3b;
-  --danger-soft: #fdeaea;
-  --warn: #a86400;
-  --warn-soft: #fff1d6;
-  --ok: #1d8656;
-  --ok-soft: #e1f4ea;
-  --avatar-bg-l: 0.94;
-  --avatar-fg-l: 0.45;
+  --danger: #b42318;
+  --danger-soft: #fbeceb;
+  --warn: #7a5200;
+  --warn-soft: #f6f0e3;
+  --ok: #1d6b40;
+  --ok-soft: #e9f2ec;
+  --avatar-bg-l: 0.95;
+  --avatar-fg-l: 0.35;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e0e12;
-    --surface: #17171d;
-    --subtle: #22222a;
-    --ink: #f2f1f6;
-    --muted: #9b9aa7;
-    --line: #2a2a33;
-    --accent: #8f7bff;
-    --accent-soft: #2a2350;
-    --on-accent: #ffffff;
-    --danger: #ff7070;
-    --danger-soft: #3a1b1e;
-    --warn: #f2b453;
-    --warn-soft: #362812;
-    --ok: #4fcb8f;
-    --ok-soft: #13301f;
-    --avatar-bg-l: 0.3;
-    --avatar-fg-l: 0.85;
-  }
+/* Light only, like a printed page: the black poster panels need the white around them. */
+:root {
+  color-scheme: light;
+}
+
+/* Film-grain texture for the black poster panels. */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -61,11 +50,51 @@
   --color-ok-soft: var(--ok-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-display: var(--font-inter-tight), var(--font-geist-sans), sans-serif;
+
+  /* Tight, near-square corners throughout (pills stay round). */
+  --radius-md: 4px;
+  --radius-lg: 5px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 10px;
 
   --animate-fade: fade 0.2s ease-out both;
   --animate-drawer: drawer 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-pop: pop 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-bubble: bubble 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-down: fade-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop-in: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-sweep: sweep 12s ease-in-out infinite;
+  --animate-grain: grain 0.9s steps(5) infinite;
+
+  @keyframes rise {
+    from { transform: translateY(105%); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+  }
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-12px); }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.2); }
+  }
+  @keyframes sweep {
+    0%, 100% { transform: translateX(-18%); }
+    50% { transform: translateX(18%); }
+  }
+  @keyframes grain {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-3%, 2%); }
+    40% { transform: translate(2%, -3%); }
+    60% { transform: translate(-2%, -1%); }
+    80% { transform: translate(3%, 3%); }
+    100% { transform: translate(0, 0); }
+  }
 
   @keyframes fade {
     from { opacity: 0; }
