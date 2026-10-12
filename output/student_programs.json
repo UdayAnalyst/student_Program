@@ -12,7 +12,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.adobeforeducation.com/adobenextstudents",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Advanced Space",
@@ -27,7 +27,37 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://advancedspace.com/intern/",
-    "scraped_at": "2026-10-05T16:42:03+00:00"
+    "scraped_at": "2026-10-12T17:15:02+00:00"
+  },
+  {
+    "company_name": "Advocate Health Care",
+    "program_name": "North Carolina student imaging programs",
+    "target_audience": "High School",
+    "target_year": "Freshman/Sophomore",
+    "field": "General Tech",
+    "application_link": "https://careers.advocatehealth.org/job-search-results/?keyword=%E2%80%9CRadiology%20Tech%20Assistant%E2%80%9D%20%7C%20%22Rad%20tech%20assistant%22&category[]=Imaging&location=North%20Carolina%2C%20USA&state=NC&country=US&radius=15",
+    "status": "Unknown",
+    "description": "Imaging Patient Assistant Eligibility: High school diploma/GED required. Enrollment in Radiologic Technology or Diagnostic Medical Sonography Program accredited by an agency recognized by the American Registry of Radiologic Technologists (ARRT) or the American Registry for Diagnostic Medical…",
+    "term": "Spring 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.advocatehealth.org/allied-health/allied-health-students/",
+    "scraped_at": "2026-10-12T17:14:46+00:00"
+  },
+  {
+    "company_name": "Advocate Health Care",
+    "program_name": "Radiology Tech Externship",
+    "target_audience": "High School",
+    "target_year": "All",
+    "field": "General Tech",
+    "application_link": "https://careers.advocatehealth.org/job-search-results/?keyword=%22radiology%20tech%20extern%22%20%7C%20%22rad%20tech%20extern%22&category[]=Imaging&location=Georgia%2C%20USA&state=GA&country=US&radius=15",
+    "status": "Unknown",
+    "description": "Location: Rome, GA Program details & eligibility: High school diploma/GED required. Enrollment in Radiologic Technology or Diagnostic Medical Sonography Program accredited by an agency recognized by the American Registry of Radiologic Technologists (ARRT) or the American Registry for Diagnostic…",
+    "term": "Spring 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.advocatehealth.org/allied-health/allied-health-students/",
+    "scraped_at": "2026-10-12T17:14:46+00:00"
   },
   {
     "company_name": "Alcon",
@@ -42,7 +72,37 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.alcon.com/careers/early-careers/",
-    "scraped_at": "2026-10-05T16:42:13+00:00"
+    "scraped_at": "2026-10-12T17:15:10+00:00"
+  },
+  {
+    "company_name": "Atrium Health",
+    "program_name": "North Carolina student imaging programs",
+    "target_audience": "High School",
+    "target_year": "Freshman/Sophomore",
+    "field": "General Tech",
+    "application_link": "https://careers.advocatehealth.org/job-search-results/?keyword=%E2%80%9CRadiology%20Tech%20Assistant%E2%80%9D%20%7C%20%22Rad%20tech%20assistant%22&category[]=Imaging&location=North%20Carolina%2C%20USA&state=NC&country=US&radius=15",
+    "status": "Unknown",
+    "description": "Imaging Patient Assistant Eligibility: High school diploma/GED required. Enrollment in Radiologic Technology or Diagnostic Medical Sonography Program accredited by an agency recognized by the American Registry of Radiologic Technologists (ARRT) or the American Registry for Diagnostic Medical…",
+    "term": "Spring 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.advocatehealth.org/allied-health/allied-health-students/",
+    "scraped_at": "2026-10-12T17:18:40+00:00"
+  },
+  {
+    "company_name": "Atrium Health",
+    "program_name": "Radiology Tech Externship",
+    "target_audience": "High School",
+    "target_year": "All",
+    "field": "General Tech",
+    "application_link": "https://careers.advocatehealth.org/job-search-results/?keyword=%22radiology%20tech%20extern%22%20%7C%20%22rad%20tech%20extern%22&category[]=Imaging&location=Georgia%2C%20USA&state=GA&country=US&radius=15",
+    "status": "Unknown",
+    "description": "Location: Rome, GA Program details & eligibility: High school diploma/GED required. Enrollment in Radiologic Technology or Diagnostic Medical Sonography Program accredited by an agency recognized by the American Registry of Radiologic Technologists (ARRT) or the American Registry for Diagnostic…",
+    "term": "Spring 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.advocatehealth.org/allied-health/allied-health-students/",
+    "scraped_at": "2026-10-12T17:18:40+00:00"
   },
   {
     "company_name": "Bank of America",
@@ -57,7 +117,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://careers.bankofamerica.com/en-us/students/campus-experience",
-    "scraped_at": "2026-10-05T16:36:07+00:00"
+    "scraped_at": "2026-10-12T17:07:57+00:00"
   },
   {
     "company_name": "BNY",
@@ -72,7 +132,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.bny.com/corporate/global/en/about-us/careers/students/pre-internship.html",
-    "scraped_at": "2026-10-05T16:36:15+00:00"
+    "scraped_at": "2026-10-12T17:08:25+00:00"
   },
   {
     "company_name": "Bracebridge Capital",
@@ -87,7 +147,7 @@
     "location": "Boston, MA",
     "source": "greenhouse",
     "source_url": "https://boards.greenhouse.io/bracebridgecapital",
-    "scraped_at": "2026-10-05T17:41:32+00:00"
+    "scraped_at": "2026-10-12T18:21:23+00:00"
   },
   {
     "company_name": "Capital One",
@@ -102,14 +162,14 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.capitalonecareers.com/early-internships-program",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:54+00:00"
   },
   {
     "company_name": "Capital One",
     "program_name": "Capital One’s Tech Summit",
     "target_audience": "Undergraduate",
     "target_year": "Freshman/Sophomore",
-    "field": "Software Engineering",
+    "field": "General Tech",
     "application_link": "https://www.capitalonecareers.com/get-ahead-with-early-career-programs-for-students",
     "status": "Unknown",
     "description": "During this five-day event, you’ll participate in workshops on topics like web development, machine learning and hardware—all important skills to have for your application to the Technology Internship Program( opens in new window) or Technology Development Program. The summit culminates with a…",
@@ -117,7 +177,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.capitalonecareers.com/get-ahead-with-early-career-programs-for-students",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Citadel",
@@ -132,7 +192,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.citadel.com/careers/programs-and-events/",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:54+00:00"
   },
   {
     "company_name": "Citadel",
@@ -147,7 +207,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.citadel.com/careers/programs-and-events/discover-citadel/",
-    "scraped_at": "2026-10-05T16:36:09+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
   },
   {
     "company_name": "D. E. Shaw",
@@ -162,7 +222,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://campus.deshaw.com/",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:57+00:00"
   },
   {
     "company_name": "Danaher",
@@ -177,7 +237,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://jobs.danaher.com/global/en/c/intern-jobs",
-    "scraped_at": "2026-10-05T16:53:24+00:00"
+    "scraped_at": "2026-10-12T17:27:59+00:00"
   },
   {
     "company_name": "Databricks",
@@ -192,58 +252,73 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.databricks.com/university/student-fellows",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Dominion Energy",
-    "program_name": "Intern - Digital Solutions - Supply Chain",
-    "target_audience": "All",
-    "target_year": "All",
-    "field": "Data Science/AI",
-    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1426389800/?locale=en_US",
-    "status": "Open",
-    "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
-    "term": "",
-    "location": "",
-    "source": "crawl",
-    "source_url": "https://careers.dominionenergy.com/job/RICHMOND-Intern-Digital-Solutions-Supply-Chain-VA-23219/1426389800/",
-    "scraped_at": "2026-10-05T16:54:00+00:00"
-  },
-  {
-    "company_name": "Dominion Energy",
-    "program_name": "Intern - Electric Distribution Dispatch",
-    "target_audience": "All",
-    "target_year": "Sophomore",
-    "field": "Software Engineering",
-    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1426513900/?locale=en_US",
-    "status": "Open",
-    "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
-    "term": "",
-    "location": "",
-    "source": "crawl",
-    "source_url": "https://careers.dominionenergy.com/job/CAYCE-Intern-Electric-Distribution-Dispatch-SC-29033/1426513900/",
-    "scraped_at": "2026-10-05T16:54:00+00:00"
-  },
-  {
-    "company_name": "Dominion Energy",
-    "program_name": "Power Generation Engineering Intern (New Canton, VA)",
+    "program_name": "Intern - Business Technology Analyst",
     "target_audience": "All",
     "target_year": "All",
     "field": "Software Engineering",
-    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1436434500/?locale=en_US",
+    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1429076400/?locale=en_US",
     "status": "Open",
     "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
     "term": "",
     "location": "",
     "source": "crawl",
-    "source_url": "https://careers.dominionenergy.com/job/NEW-CANTON-Power-Generation-Engineering-Intern-%28New-Canton%2C-VA%29-VA-23123/1436434500/",
-    "scraped_at": "2026-10-05T16:54:01+00:00"
+    "source_url": "https://careers.dominionenergy.com/job/CAYCE-Intern-Business-Technology-Analyst-SC-29033/1429076400/",
+    "scraped_at": "2026-10-12T17:28:17+00:00"
+  },
+  {
+    "company_name": "Dominion Energy",
+    "program_name": "Intern - Engineer - Transmission Planning",
+    "target_audience": "All",
+    "target_year": "All",
+    "field": "Software Engineering",
+    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1429023400/?locale=en_US",
+    "status": "Open",
+    "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
+    "term": "Summer 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.dominionenergy.com/job/CAYCE-Intern-Engineer-Transmission-Planning-SC-29033/1429023400/",
+    "scraped_at": "2026-10-12T17:28:16+00:00"
+  },
+  {
+    "company_name": "Dominion Energy",
+    "program_name": "Intern - Transmission Engineering",
+    "target_audience": "All",
+    "target_year": "All",
+    "field": "Software Engineering",
+    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1429086800/?locale=en_US",
+    "status": "Open",
+    "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
+    "term": "",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.dominionenergy.com/job/CAYCE-Intern-Transmission-Engineering-SC-29033/1429086800/",
+    "scraped_at": "2026-10-12T17:28:17+00:00"
+  },
+  {
+    "company_name": "Dominion Energy",
+    "program_name": "Nuclear Intern - Electrical I&C/Analysis",
+    "target_audience": "All",
+    "target_year": "All",
+    "field": "Software Engineering",
+    "application_link": "https://careers.dominionenergy.com/talentcommunity/apply/1429096600/?locale=en_US",
+    "status": "Open",
+    "description": "Dominion Energy is committed to providing reliable, affordable, and increasingly clean energy that powers our customers every day. If you want to work for a purpose-driven company that values safety and collaboration, we’re looking for you.",
+    "term": "",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.dominionenergy.com/job/GLEN-ALLEN-Nuclear-Intern-Electrical-I&CAnalysis-VA-23060/1429096600/",
+    "scraped_at": "2026-10-12T17:28:16+00:00"
   },
   {
     "company_name": "Dropbox",
     "program_name": "Dropbox Launch",
     "target_audience": "All",
-    "target_year": "All",
+    "target_year": "Senior",
     "field": "Data Science/AI",
     "application_link": "https://www.dropbox.jobs/",
     "status": "Unknown",
@@ -252,7 +327,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.dropbox.jobs/en/",
-    "scraped_at": "2026-10-05T16:36:10+00:00"
+    "scraped_at": "2026-10-12T17:08:04+00:00"
   },
   {
     "company_name": "Duolingo",
@@ -267,7 +342,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://careers.duolingo.com/",
-    "scraped_at": "2026-10-05T16:36:09+00:00"
+    "scraped_at": "2026-10-12T17:08:01+00:00"
   },
   {
     "company_name": "Electronic Arts",
@@ -282,7 +357,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.ea.com/en-ca/careers/early-careers",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "ElevenLabs",
@@ -297,22 +372,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://elevenlabs.io/ambassador",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
-  },
-  {
-    "company_name": "Entergy",
-    "program_name": "Student Intern, Distribution Project Delivery Engineering, Summer 2027",
-    "target_audience": "All",
-    "target_year": "All",
-    "field": "Software Engineering",
-    "application_link": "https://jobs.entergy.com/talentcommunity/apply/1427003000/?locale=en_US",
-    "status": "Open",
-    "description": "Apply now » Date: Oct 3, 2026 Location: Little Rock, Arkansas, United States Company: Entergy PS Job Title: Student, Intern Work Place Flexibility: Onsite Legal Entity: Entergy Services, LLC “Please note: Authorization to work in the United States is a precondition to employment in this position.…",
-    "term": "Summer 2027",
-    "location": "",
-    "source": "crawl",
-    "source_url": "https://jobs.entergy.com/job/Little-Rock-Student-Intern%2C-Distribution-Project-Delivery-Engineering%2C-Summer-2027-Arka/1427003000/",
-    "scraped_at": "2026-10-05T16:55:53+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Expedia Group",
@@ -327,7 +387,7 @@
     "location": "Washington - Seattle Campus",
     "source": "workday",
     "source_url": "https://expedia.wd108.myworkdayjobs.com/private",
-    "scraped_at": "2026-10-05T17:39:06+00:00"
+    "scraped_at": "2026-10-12T18:18:44+00:00"
   },
   {
     "company_name": "EY",
@@ -342,7 +402,7 @@
     "location": "",
     "source": "manual",
     "source_url": "https://www.ey.com/en_us/careers/internships-student-programs",
-    "scraped_at": "2026-10-05T16:36:02+00:00"
+    "scraped_at": "2026-10-12T17:07:52+00:00"
   },
   {
     "company_name": "Fairlife",
@@ -357,7 +417,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://fairlife.com/students-and-graduates/",
-    "scraped_at": "2026-10-05T16:56:34+00:00"
+    "scraped_at": "2026-10-12T17:31:33+00:00"
   },
   {
     "company_name": "Fermilab",
@@ -372,7 +432,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://internships.fnal.gov/undergraduate-programs/minority-serving-institutions-internship-program-msiip/",
-    "scraped_at": "2026-10-05T16:58:08+00:00"
+    "scraped_at": "2026-10-12T17:33:16+00:00"
   },
   {
     "company_name": "Flowserve",
@@ -387,7 +447,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.flowserve.com/career-programs/usa-mba-program/",
-    "scraped_at": "2026-10-05T16:58:04+00:00"
+    "scraped_at": "2026-10-12T17:33:14+00:00"
   },
   {
     "company_name": "GE Appliances",
@@ -402,7 +462,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.geappliances.com/pages/student-opportunities",
-    "scraped_at": "2026-10-05T16:59:07+00:00"
+    "scraped_at": "2026-10-12T17:34:23+00:00"
   },
   {
     "company_name": "Geotab",
@@ -417,7 +477,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.geotab.com/programs-scholarships/",
-    "scraped_at": "2026-10-05T17:00:03+00:00"
+    "scraped_at": "2026-10-12T17:35:23+00:00"
   },
   {
     "company_name": "GlobalFoundries",
@@ -432,7 +492,7 @@
     "location": "USA - Vermont - Essex Junction",
     "source": "workday",
     "source_url": "https://globalfoundries.wd1.myworkdayjobs.com/External",
-    "scraped_at": "2026-10-05T17:45:45+00:00"
+    "scraped_at": "2026-10-12T18:26:06+00:00"
   },
   {
     "company_name": "GlobalFoundries",
@@ -447,7 +507,7 @@
     "location": "USA - Vermont - Essex Junction",
     "source": "workday",
     "source_url": "https://globalfoundries.wd1.myworkdayjobs.com/External",
-    "scraped_at": "2026-10-05T17:45:45+00:00"
+    "scraped_at": "2026-10-12T18:26:06+00:00"
   },
   {
     "company_name": "Google",
@@ -462,7 +522,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.google.com/about/careers/applications/",
-    "scraped_at": "2026-10-05T16:36:10+00:00"
+    "scraped_at": "2026-10-12T17:08:06+00:00"
   },
   {
     "company_name": "Handshake",
@@ -477,22 +537,22 @@
     "location": "",
     "source": "curated",
     "source_url": "https://joinhandshake.com/ai/referral/?referralCode=1F636E&utm_source=referral",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Hudson River Trading",
     "program_name": "HRT Women in Trading Technology Internship - Jan",
-    "target_audience": "All",
-    "target_year": "Freshman/Sophomore/Senior",
-    "field": "Software Engineering",
+    "target_audience": "Undergraduate",
+    "target_year": "Freshman/Sophomore",
+    "field": "General Tech",
     "application_link": "https://www.hudsonrivertrading.com/student-opportunities/",
     "status": "Unknown",
     "description": "An informative 4 week exploration into automated trading. The goal of this program is to give Freshmen and Sophomores who don’t currently have exposure into our industry and insight into who we are and what we do.",
-    "term": "Summer 2027",
+    "term": "",
     "location": "",
     "source": "curated",
     "source_url": "https://www.hudsonrivertrading.com/student-opportunities/",
-    "scraped_at": "2026-10-05T16:36:09+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
   },
   {
     "company_name": "IMC Trading",
@@ -507,7 +567,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.imc.com/us/careers/students-graduates",
-    "scraped_at": "2026-10-05T16:37:25+00:00"
+    "scraped_at": "2026-10-12T17:09:39+00:00"
   },
   {
     "company_name": "Ivy Tech Community College",
@@ -522,7 +582,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.ivytech.edu/programs/signature-opportunities-for-students/transfer-options/",
-    "scraped_at": "2026-10-05T17:04:59+00:00"
+    "scraped_at": "2026-10-12T17:41:07+00:00"
   },
   {
     "company_name": "Ivy Tech Community College",
@@ -537,7 +597,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.ivytech.edu/programs/signature-opportunities-for-students/high-school-programs/",
-    "scraped_at": "2026-10-05T17:05:05+00:00"
+    "scraped_at": "2026-10-12T17:41:15+00:00"
   },
   {
     "company_name": "Ivy Tech Community College",
@@ -552,7 +612,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.ivytech.edu/careers/explore-career-areas/",
-    "scraped_at": "2026-10-05T17:04:52+00:00"
+    "scraped_at": "2026-10-12T17:40:59+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -567,7 +627,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/focus/",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:54+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -582,7 +642,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/fttp/",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:52+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -597,7 +657,7 @@
     "location": "",
     "source": "manual",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/bridge/",
-    "scraped_at": "2026-10-05T16:36:02+00:00"
+    "scraped_at": "2026-10-12T17:07:52+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -612,7 +672,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/insight/",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -627,7 +687,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -642,7 +702,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -657,7 +717,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/wise/",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Jane Street",
@@ -672,7 +732,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.janestreet.com/join-jane-street/programs-and-events/wise/",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Joinus",
@@ -687,7 +747,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://joinus.barclays/americas/diversity-programs-career/technology-inside-track-series-diversity-program/",
-    "scraped_at": "2026-10-05T16:37:26+00:00"
+    "scraped_at": "2026-10-12T17:09:29+00:00"
   },
   {
     "company_name": "JP Morgan Chase",
@@ -702,22 +762,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.jpmorganchase.com/careers/explore-opportunities/programs/jpmcfellowship",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
-  },
-  {
-    "company_name": "Lesbians Who Tech",
-    "program_name": "LWT Summit 2026 Scholarship",
-    "target_audience": "All",
-    "target_year": "All",
-    "field": "General Tech",
-    "application_link": "https://lwtsquad.com/lwt-summit-2026/start-scholarship-application/",
-    "status": "Rolling",
-    "description": "Summit Scholarship (LGBTQ+ Women & Non-Binary; Students May Apply) Check site Deadline: Rolling.",
-    "term": "",
-    "location": "",
-    "source": "curated",
-    "source_url": "https://lwtsquad.com/lwt-summit-2026/start-scholarship-application/",
-    "scraped_at": "2026-10-05T16:36:06+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
   },
   {
     "company_name": "Liberty Mutual",
@@ -732,7 +777,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://jobs.libertymutualgroup.com/careers/early-talent/internships-coops-apprenticeships/",
-    "scraped_at": "2026-10-05T16:38:11+00:00"
+    "scraped_at": "2026-10-12T17:11:12+00:00"
   },
   {
     "company_name": "LinkedIn",
@@ -747,7 +792,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://careers.linkedin.com/pathways-programs/internships/Technical/first-play",
-    "scraped_at": "2026-10-05T16:36:02+00:00"
+    "scraped_at": "2026-10-12T17:07:52+00:00"
   },
   {
     "company_name": "McGill University",
@@ -762,7 +807,7 @@
     "location": "Penfield 740",
     "source": "workday",
     "source_url": "https://mcgill.wd3.myworkdayjobs.com/McGill_Careers",
-    "scraped_at": "2026-10-05T17:48:05+00:00"
+    "scraped_at": "2026-10-12T18:28:45+00:00"
   },
   {
     "company_name": "McGill University",
@@ -777,7 +822,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.mcgill.ca/undergraduate-admissions/why-mcgill/discover-montreal",
-    "scraped_at": "2026-10-05T17:10:36+00:00"
+    "scraped_at": "2026-10-12T17:47:20+00:00"
   },
   {
     "company_name": "Microsoft",
@@ -792,7 +837,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.microsoft.com/v2/global/en/students",
-    "scraped_at": "2026-10-05T16:38:27+00:00"
+    "scraped_at": "2026-10-12T17:10:59+00:00"
   },
   {
     "company_name": "Microsoft",
@@ -807,13 +852,13 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.microsoft.com/v2/global/en/students",
-    "scraped_at": "2026-10-05T16:38:27+00:00"
+    "scraped_at": "2026-10-12T17:10:59+00:00"
   },
   {
     "company_name": "Microsoft",
     "program_name": "Microsoft Explore",
     "target_audience": "Undergraduate",
-    "target_year": "Freshman/Sophomore",
+    "target_year": "Freshman/Sophomore/Senior",
     "field": "Software Engineering",
     "application_link": "https://careers.microsoft.com/students/us/en/usexploremicrosoftprogram",
     "status": "Unknown",
@@ -822,7 +867,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://careers.microsoft.com/v2/global/en/exploremicrosoft",
-    "scraped_at": "2026-10-05T16:36:07+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
   },
   {
     "company_name": "MLT (Management Leadership for Tomorrow)",
@@ -837,7 +882,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://mlt.smapply.org/prog/careerprep2029_application/",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Morgan Stanley",
@@ -852,7 +897,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://morganstanley.tal.net/vx/lang-en-GB/mobile-0/brand-2/candidate/so/pm/1/pl/2/opp/9425-2020-Spring-Technology-Early-Insights-Day/en-GB",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   },
   {
     "company_name": "Northrop Grumman",
@@ -867,7 +912,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.northropgrumman.com/life-at-northrop-grumman/a-pathway-into-an-engineering-career",
-    "scraped_at": "2026-10-05T16:39:03+00:00"
+    "scraped_at": "2026-10-12T17:11:36+00:00"
   },
   {
     "company_name": "NPR",
@@ -882,7 +927,7 @@
     "location": "Remote",
     "source": "greenhouse",
     "source_url": "https://boards.greenhouse.io/nationalpublicradioinc",
-    "scraped_at": "2026-10-05T17:48:33+00:00"
+    "scraped_at": "2026-10-12T18:29:18+00:00"
   },
   {
     "company_name": "NVIDIA",
@@ -897,22 +942,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
-  },
-  {
-    "company_name": "Optiver",
-    "program_name": "Quantitative Intern, Summer 2027 (Sophomore Standing+; Grad Dec 2027–Jun 2029)",
-    "target_audience": "Undergraduate",
-    "target_year": "Sophomore",
-    "field": "Data Science/AI",
-    "application_link": "https://www.optiver.com/join-us/jobs/trading/chicago/quantitative-intern-summer-2027/",
-    "status": "Open",
-    "description": "Chicago, IL Deadline: Check site.",
-    "term": "Summer 2027",
-    "location": "",
-    "source": "curated",
-    "source_url": "https://www.optiver.com/join-us/jobs/trading/chicago/quantitative-intern-summer-2027/",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:54+00:00"
   },
   {
     "company_name": "Oracle",
@@ -927,7 +957,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.oracle.com/careers/students-grads/internships/",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:54+00:00"
   },
   {
     "company_name": "Palantir",
@@ -942,7 +972,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.palantir.com/careers/students/launch/",
-    "scraped_at": "2026-10-05T16:36:23+00:00"
+    "scraped_at": "2026-10-12T17:08:09+00:00"
   },
   {
     "company_name": "Palantir",
@@ -957,7 +987,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.palantir.com/careers/students-and-early-talent",
-    "scraped_at": "2026-10-05T16:36:10+00:00"
+    "scraped_at": "2026-10-12T17:08:03+00:00"
   },
   {
     "company_name": "Pearson",
@@ -972,7 +1002,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.pearson.com/en-us/higher-education/students/student-programs/pearson-campus-ambassador.html",
-    "scraped_at": "2026-10-05T17:16:53+00:00"
+    "scraped_at": "2026-10-12T17:54:21+00:00"
   },
   {
     "company_name": "Procter & Gamble",
@@ -987,7 +1017,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.pgcareers.com/global/en",
-    "scraped_at": "2026-10-05T16:36:07+00:00"
+    "scraped_at": "2026-10-12T17:07:57+00:00"
   },
   {
     "company_name": "Procter & Gamble",
@@ -1002,7 +1032,7 @@
     "location": "4 Locations",
     "source": "workday",
     "source_url": "https://pg.wd5.myworkdayjobs.com/1000",
-    "scraped_at": "2026-10-05T17:39:37+00:00"
+    "scraped_at": "2026-10-12T18:19:12+00:00"
   },
   {
     "company_name": "Procter & Gamble (P&G)",
@@ -1017,7 +1047,7 @@
     "location": "4 Locations",
     "source": "workday",
     "source_url": "https://pg.wd5.myworkdayjobs.com/1000",
-    "scraped_at": "2026-10-05T17:49:54+00:00"
+    "scraped_at": "2026-10-12T18:30:48+00:00"
   },
   {
     "company_name": "Rewriting the Code (RTC)",
@@ -1032,7 +1062,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://rewritingthecode.org/join-us/",
-    "scraped_at": "2026-10-05T16:36:06+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
   },
   {
     "company_name": "Rivian",
@@ -1047,7 +1077,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://rivian.com/stories/early-career-growth",
-    "scraped_at": "2026-10-05T16:39:09+00:00"
+    "scraped_at": "2026-10-12T17:11:37+00:00"
   },
   {
     "company_name": "Salesforce",
@@ -1062,7 +1092,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.salesforce.com/company/careers/university/internships/?bc=OTH",
-    "scraped_at": "2026-10-05T16:39:34+00:00"
+    "scraped_at": "2026-10-12T17:12:00+00:00"
   },
   {
     "company_name": "Society of Women Engineers (SWE)",
@@ -1077,7 +1107,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://we26.swe.org/about/we26-registration-information/",
-    "scraped_at": "2026-10-05T16:36:06+00:00"
+    "scraped_at": "2026-10-12T17:07:59+00:00"
   },
   {
     "company_name": "Stevens Institute of Technology",
@@ -1092,7 +1122,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.stevens.edu/student-life/career-center",
-    "scraped_at": "2026-10-05T17:27:38+00:00"
+    "scraped_at": "2026-10-12T18:06:13+00:00"
   },
   {
     "company_name": "Stevens Institute of Technology",
@@ -1107,7 +1137,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.stevens.edu/student-life/student-support",
-    "scraped_at": "2026-10-05T17:27:48+00:00"
+    "scraped_at": "2026-10-12T18:06:26+00:00"
   },
   {
     "company_name": "Stevens Institute of Technology",
@@ -1122,37 +1152,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.stevens.edu/academics/undergraduate-study/special-programs",
-    "scraped_at": "2026-10-05T17:27:39+00:00"
-  },
-  {
-    "company_name": "Susquehanna",
-    "program_name": "Discovery Programme: Quantitative Trading & Quantitative Strategy Development (On-site)",
-    "target_audience": "Undergraduate",
-    "target_year": "All",
-    "field": "Software Engineering",
-    "application_link": "https://careers-sig.icims.com/jobs/11203/login",
-    "status": "Unknown",
-    "description": "Toggle navigation What We Do Who We Are Careers Blog Discovery Programme: Quantitative Trading & Quantitative Strategy Development (On-site) Dublin , Ireland Quantitative Trading + Strategy Discovery Program 2027 Back Discovery Programme: Quantitative Trading & Quantitative Strategy Development…",
-    "term": "Summer 2028",
-    "location": "",
-    "source": "crawl",
-    "source_url": "https://careers.sig.com/jobs/11203?lang=en-us",
-    "scraped_at": "2026-10-05T16:41:07+00:00"
-  },
-  {
-    "company_name": "Susquehanna",
-    "program_name": "PhD Discovery Summit (On-Site)",
-    "target_audience": "PhD",
-    "target_year": "Junior/Senior",
-    "field": "General Tech",
-    "application_link": "https://careers-sig.icims.com/jobs/11587/login",
-    "status": "Unknown",
-    "description": "Toggle navigation What We Do Who We Are Careers Blog PhD Discovery Summit (On-Site) Dublin , Ireland Quantitative Research Discovery Program 2027 Back PhD Discovery Summit (On-Site) JOB_DESCRIPTION.SHARE.HTML CAROUSEL_PARAGRAPH JOB_DESCRIPTION.SHARE.HTML Dublin, Ireland Quantitative Research…",
-    "term": "",
-    "location": "",
-    "source": "crawl",
-    "source_url": "https://careers.sig.com/jobs/11587?lang=en-us",
-    "scraped_at": "2026-10-05T16:40:45+00:00"
+    "scraped_at": "2026-10-12T18:06:14+00:00"
   },
   {
     "company_name": "Tal",
@@ -1167,7 +1167,22 @@
     "location": "",
     "source": "curated",
     "source_url": "https://bankcampuscareers.tal.net/vx/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/2067-Ignite-with-Tech/en-GB?fbclid=IwAR2lPQ8W7_graetvLg1dvaryK3wdtx3oYmGwvPMfwHPx3ORDAVuYShGuVfw",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:58+00:00"
+  },
+  {
+    "company_name": "The Hartford",
+    "program_name": "Found 22 jobs matching \"intern\" at The Hartford",
+    "target_audience": "Undergraduate",
+    "target_year": "Freshman",
+    "field": "Software Engineering",
+    "application_link": "https://www.jointhehartford.com/jobs/?page_jobs=2&search_term=intern",
+    "status": "Unknown",
+    "description": "1 2 next ›› Freshman Experience 2027 Location: Hartford, CT Category: Human Resources Employment Type: Full time Job Ref: R2627409-168 Business Insurance Auto Claims Intern Location: Lake Mary, FL Category: Human Resources Employment Type: Full time, Hybrid or Remote Job Ref: R2627386-194 Business…",
+    "term": "Summer 2027",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://www.jointhehartford.com/jobs/?search_term=intern",
+    "scraped_at": "2026-10-12T18:09:24+00:00"
   },
   {
     "company_name": "Two Sigma",
@@ -1182,7 +1197,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://careers.twosigma.com/",
-    "scraped_at": "2026-10-05T16:36:05+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Uber",
@@ -1197,7 +1212,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://jobs.uber.com/en/teams/emerging-talent/",
-    "scraped_at": "2026-10-05T16:36:10+00:00"
+    "scraped_at": "2026-10-12T17:08:04+00:00"
   },
   {
     "company_name": "Visa",
@@ -1212,7 +1227,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://corporate.visa.com/en/careers.html",
-    "scraped_at": "2026-10-05T16:36:04+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Wabtec",
@@ -1227,7 +1242,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.wabtec.com/early-careers-internships",
-    "scraped_at": "2026-10-05T17:35:57+00:00"
+    "scraped_at": "2026-10-12T18:15:34+00:00"
   },
   {
     "company_name": "Wabtec",
@@ -1242,7 +1257,7 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://careers.wabtec.com/events",
-    "scraped_at": "2026-10-05T17:35:59+00:00"
+    "scraped_at": "2026-10-12T18:15:37+00:00"
   },
   {
     "company_name": "WallStreetQuants",
@@ -1257,7 +1272,22 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://www.thewallstreetquants.com/jobs/phd-winter-internship-at-hrt-b5e68db2-a174-43a1-84f8-3ae2230cf965",
-    "scraped_at": "2026-10-05T17:36:05+00:00"
+    "scraped_at": "2026-10-12T18:15:47+00:00"
+  },
+  {
+    "company_name": "WEC Energy Group",
+    "program_name": "Intern - Renewables Engineering",
+    "target_audience": "All",
+    "target_year": "All",
+    "field": "Software Engineering",
+    "application_link": "https://careers.wecenergygroup.com/talentcommunity/apply/1419788700/?locale=en_US",
+    "status": "Unknown",
+    "description": "We Energies and Wisconsin Public Service, subsidiaries of WEC Energy Group, is seeking a Intern - Renewables Engineering starting May/June 2027. This position can be located in Green Bay, Wisconsin, Milwaukee, Wisconsin or within a reasonable drive to any of our WEC Energy Group renewables…",
+    "term": "",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://careers.wecenergygroup.com/Wisconsin_Public_Service/job/Milwaukee-Intern-Renewables-Engineering-WI-53203/1419788700/",
+    "scraped_at": "2026-10-12T18:15:40+00:00"
   },
   {
     "company_name": "Wells Fargo",
@@ -1272,7 +1302,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.wellsfargojobs.com/job/-/-/1251/17281627?utm_source=Indeed&utm_medium=organic&utm_campaign=Indeed",
-    "scraped_at": "2026-10-05T16:36:03+00:00"
+    "scraped_at": "2026-10-12T17:07:55+00:00"
   },
   {
     "company_name": "Women in Analytics",
@@ -1287,7 +1317,7 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.dataconnectconf.com/dataconnect/conference",
-    "scraped_at": "2026-10-05T16:36:06+00:00"
+    "scraped_at": "2026-10-12T17:07:57+00:00"
   },
   {
     "company_name": "Xcel Energy",
@@ -1302,7 +1332,22 @@
     "location": "",
     "source": "crawl",
     "source_url": "https://jobs.xcelenergy.com/generation-development-engineering-intern-mn-co/job/2E1E802BE8C0A963A4365112B31A647F",
-    "scraped_at": "2026-10-05T17:37:38+00:00"
+    "scraped_at": "2026-10-12T18:17:17+00:00"
+  },
+  {
+    "company_name": "Xcel Energy",
+    "program_name": "Substation Field Engineering Intern - CO",
+    "target_audience": "All",
+    "target_year": "All",
+    "field": "Software Engineering",
+    "application_link": "https://xcelenergy.wd1.myworkdayjobs.com/External/job/Denver-CO-80223/Substation-Field-Engineering-Intern---CO_JR116609-1/apply",
+    "status": "Unknown",
+    "description": "Back to Search Job Details Career area Intern Position Type Date Posted Loading... Location Denver, CO 80223, United States of America Job ID JR116609 Share Facebook X LinkedIn Email Apply Denver, Colorado, 80223, United States of America Xcel Energy (NASDAQ: XEL) is a leading energy provider and…",
+    "term": "",
+    "location": "",
+    "source": "crawl",
+    "source_url": "https://jobs.xcelenergy.com/substation-field-engineering-intern-co/job/0D6E7CFA1FED70C7BCB2361EE745F718",
+    "scraped_at": "2026-10-12T18:17:11+00:00"
   },
   {
     "company_name": "Zillow",
@@ -1317,6 +1362,6 @@
     "location": "",
     "source": "curated",
     "source_url": "https://www.zillow.com/careers/internships/",
-    "scraped_at": "2026-10-05T16:36:09+00:00"
+    "scraped_at": "2026-10-12T17:07:56+00:00"
   }
 ]
