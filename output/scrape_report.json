@@ -1,42 +1,55 @@
 {
-  "generated_at": "2026-10-26T16:10:03+00:00",
-  "duration_min": 79.5,
-  "programs": 102,
+  "generated_at": "2026-11-02T19:03:40+00:00",
+  "duration_min": 89.9,
+  "programs": 110,
   "companies_with_programs": 68,
   "by_source": {
-    "crawl": 40,
+    "crawl": 43,
     "curated": 54,
-    "workday": 6,
+    "workday": 11,
     "manual": 2
   },
   "by_status": {
-    "Unknown": 56,
-    "Open": 39,
+    "Unknown": 58,
+    "Open": 45,
     "Rolling": 2,
     "Closed": 5
   },
   "by_field": {
-    "Software Engineering": 56,
-    "General Tech": 34,
+    "Software Engineering": 62,
+    "General Tech": 36,
     "IT/Infrastructure": 1,
-    "Data Science/AI": 9,
+    "Data Science/AI": 8,
+    "Cybersecurity": 1,
     "Product": 2
   },
-  "candidates_found": 308,
-  "dropped_non_tech": 201,
+  "candidates_found": 319,
+  "dropped_non_tech": 205,
   "dropped_non_tech_examples": [
-    "ABB: Discovery Program - Operations [workday]",
-    "ABB: Discovery Program - Project Management [workday]",
     "AIG: Shaping AIG’s Future Leaders [crawl]",
     "Accenture: Early Talent Programs [crawl]",
     "Accenture: Elevate to Innovate Externship [crawl]",
     "Accenture: Student Leadership Program [crawl]",
-    "Advocate Health Care: Externships & student programs [crawl]",
+    "Accor: Empowering Future Leaders [crawl]",
+    "Advocate Health Care: Illinois & Wisconsin student respiratory therapy programs [crawl]",
+    "Advocate Health Care: Imaging Externship [crawl]",
+    "Advocate Health Care: Internships, externships and training programs for Allied Health students [crawl]",
+    "Advocate Health Care: Nurse Externship Program [crawl]",
+    "Advocate Health Care: Respiratory Therapy Externship [crawl]",
+    "Advocate Health Care: Respiratory therapy student programs [crawl]",
+    "Advocate Health Care: Summer Nurse Externship Program [crawl]",
     "Airbus: Explore internships opportunities in your country [crawl]",
     "Alcon: Innovate Boldly R&D Externship [crawl]",
     "American Meteorological Society: AMS First-Year Undergraduate Scholarship (2027) [curated]",
     "Amwins: Internship Programme [crawl]",
-    "AstraZeneca: Summer Internship Program (US) [crawl]",
+    "Atrium Health: Illinois & Wisconsin student respiratory therapy programs [crawl]",
+    "Atrium Health: Imaging Externship [crawl]",
+    "Atrium Health: Internships, externships and training programs for Allied Health students [crawl]",
+    "Atrium Health: Nurse Externship Program [crawl]",
+    "Atrium Health: Respiratory Therapy Externship [crawl]",
+    "Atrium Health: Respiratory therapy student programs [crawl]",
+    "Atrium Health: Summer Nurse Externship Program [crawl]",
+    "Augsburg University: 2026 Morgan Stanley Early Insights - November 2nd, 2026 [crawl]",
     "BNY: PRE-INTERNSHIP APPLICATION PROCESS [crawl]",
     "BNY: PRE-INTERNSHIP PROGRAM [crawl]",
     "BNY: PRE-INTERNSHIP PROGRAMS [crawl]",
@@ -44,6 +57,7 @@
     "BNY: THE FUTURE LEADERS AT BNY [crawl]",
     "BP: Early engagement programmes [crawl]",
     "Baird: Women in Equity Research Event (2026) [curated]",
+    "Baker Hughes: Emerging Leaders [crawl]",
     "Baker McKenzie: First Year Scheme 2027 [curated]",
     "Bank of America: Spring Insight Program(me) [crawl]",
     "Barclays: Discovery Programme [crawl]",
@@ -56,6 +70,7 @@
     "Blackstone: 2027 Blackstone APAC Future Leaders Program (Online) [workday]",
     "Blackstone: EMEA Future Leaders Spring Insight Programme (2027) [curated]",
     "CHS: Intern spotlight: Allison Engelhart prepares for an ag career [crawl]",
+    "CVS Health: Aetna/CVS Health Virtual Underwriting Externship Program - Intro to Insurance & Underwriting [workday]",
     "Capital Group: Explore programs built around your potential [crawl]",
     "Capital One: EARLY INTERNSHIP PROGRAM ROLES [crawl]",
     "Capital One: Early Internship Program [crawl]",
@@ -69,6 +84,8 @@
     "Citi: D1 Athlete Development Program [crawl]",
     "Citi: Freshman Discovery [crawl]",
     "Citi: Pre-Internships [crawl]",
+    "Citi: Program Applications and Event Registration [crawl]",
+    "Cleveland Clinic: Nurse Associate Externship Gives Students Real-World Experience [crawl]",
     "CoxHealth: Nursing Externship [crawl]",
     "CoxHealth: Nursing Externships [crawl]",
     "Delta Dental of Iowa: Data Analysis Intern [crawl]",
@@ -77,7 +94,7 @@
     "Deutsche Bank: Insight Programmes [crawl]",
     "Disney: Explore Program Roles [crawl]",
     "Dominion Energy: Careers in Energy Student Conference [crawl]",
-    "Dominion Energy: Intern - Environmental Compliance [crawl]",
+    "Dominion Energy: Intern - System Protection Technician (Herndon/Loudoun, VA) [crawl]",
     "Elanco: Emerging Leaders Program [crawl]",
     "Emory University: Oxford Student Programs [crawl]",
     "Emory University: Transfer Student Orientation Programs [crawl]",
@@ -88,6 +105,7 @@
     "Fortrea: Externship program [crawl]",
     "Frontier Economics: A-Level Insight Day [crawl]",
     "Geisinger: Nursing Student Summer Externship - Apply Here for RN Hospital Case Management [workday]",
+    "Geisinger: Nursing Student Summer Externship - RN Reproductive Endocrinology [workday]",
     "Geisinger: Nursing Student Summer Externship- Apply here for all locations! [workday]",
     "Gibson Dunn: London First-Year Insight Days — In-Person / Virtual (2027) [curated]",
     "Gilead Sciences: Gain Real World Experience [crawl]",
@@ -98,10 +116,7 @@
     "Goldman Sachs: Emerging Leaders Series [manual]",
     "Hagan Scholarship Foundation: Hagan Scholarship — Incoming College Freshmen, 2027–2028 [curated]",
     "Houlihan Lokey: Investment Banking Insight Day — Corporate Finance (2026) [curated]",
-    "Howard University: Explore Residence Halls [crawl]",
-    "Howard University: Externship/Practicum [crawl]",
     "Howard University: Parent & Family Program [crawl]",
-    "Howard University: Tuition Rebate Program [crawl]",
     "Howden: Insight programmes [crawl]",
     "Icahn School of Medicine at Mount Sinai: FlexMed Early Assurance Program — 2027 Application [curated]",
     "Intermountain Healthcare: Programs to further your career [crawl]",
@@ -118,8 +133,6 @@
     "Kite Pharma: Gilead Internship Program [crawl]",
     "Lander University Foundation / College of Nursing: Nahn Joo Chang Scholarship — Incoming First-Year Pre-Nursing (2027–2028) [curated]",
     "Latham & Watkins: 2027 First-Year Spring Scheme — London [curated]",
-    "Lazard: Intern Programme [crawl]",
-    "Lazard: Spring Insight Programme [crawl]",
     "Liberty Mutual: Discovery Programs [crawl]",
     "Liberty Mutual: Explore Liberty Mutual early talent programs​ [crawl]",
     "Liberty Mutual: INSURE Program [crawl]",
@@ -130,12 +143,6 @@
     "Lincoln International: Women in Finance Workshop (2026) [curated]",
     "Louisiana State University (LSU): Freshman Admission Counselor [workday]",
     "MarketAxess: Future Women in Fintech Program: a reflection [crawl]",
-    "Marsh & McLennan: Marsh Insight Day - Bristol [workday]",
-    "Marsh: Marsh Insight Day - Bristol [workday]",
-    "McGill University: Assistant Professor - Emerging Leaders [workday]",
-    "McGill University: Assistant Professor in Materials Chemistry - (Canada Impact+ Emerging Leaders) – Department of Chemistry [workday]",
-    "McGill University: Assistant Professor in Regulated Plant Pests - Canada Impact+ Emerging Leaders [workday]",
-    "Mercer University: 19-Day Celebration Will Culminate in Oct. 29 Investiture Ceremony [crawl]",
     "Montana State University Honors College: Presidential Scholarship — Incoming First-Year Students, Fall 2027 [curated]",
     "Newrez: TRAIL Rising Leaders Program - Digital Marketing [workday]",
     "North Carolina A&T State University: Honors Distinguished Scholars Program (Incoming Fall 2027 Freshmen) — Cheatham-White, Dowdy & February One [curated]",
@@ -143,9 +150,10 @@
     "Northeastern State University Foundation: Incoming Freshman Foundation Scholarships — 2027–2028 [curated]",
     "Northeastern University: Step 2. Explore Program Options [crawl]",
     "Northwell Health: 2027 Nursing Externship Dates [crawl]",
+    "Northwell Health: Development and Fundraising Internship [crawl]",
     "Northwell Health: Externships, Fellowships and Nurse Residency Programs [crawl]",
+    "Northwell Health: Nurse Externship [crawl]",
     "Northwell Health: Summer nurse externship [crawl]",
-    "Novartis: US Market Access Future Leaders Program [crawl]",
     "Novogradac & Company: 2027 Summer Leadership Program — Atlanta/Alpharetta [curated]",
     "Optiver: FutureFocus: Quants (2027) [curated]",
     "Oregon State Government: 2027 Spring, Summer & Fall Externship Program – Trial Division Student Law Clerk | Oregon Public Defense Commission (Medford, OR) [workday]",
@@ -160,13 +168,9 @@
     "PlayStation: Character Artist Intern- Undergraduate [crawl]",
     "PlayStation: Character TD (Rigging) Intern- Undergraduate [crawl]",
     "PlayStation: Concept Art Intern- Undergraduate [crawl]",
-    "PlayStation: Dialogue Intern- Undergraduate [crawl]",
     "PlayStation: Internship program [crawl]",
     "Point72: 2027 Point72 Academy Spring Insight Programme – UK [greenhouse]",
     "Point72: Academy Spring Insight Programme — UK (2027) [curated]",
-    "Point72: Point72 Academy Coffee Chats — Class of 2029 (US) [greenhouse]",
-    "Procter & Gamble (P&G): Future Leaders Event R&D Devices - Internship (m/f/d) [workday]",
-    "Procter & Gamble: Future Leaders Event R&D Devices - Internship (m/f/d) [workday]",
     "RMIT University / George Alexander Foundation: George Alexander Foundation Scholarship — First Year of Tertiary Study, 2027 [curated]",
     "Rochester Regional Health: New Graduate Registered Nurse Perioperative Explore Program [crawl]",
     "Rochester Regional Health: New Graduate Registered Nurse: Perioperative Explore Program - Unity Hospital [crawl]",
@@ -191,7 +195,6 @@
     "Sony Interactive Entertainment: Character Artist Intern- Undergraduate [crawl]",
     "Sony Interactive Entertainment: Character TD (Rigging) Intern- Undergraduate [crawl]",
     "Sony Interactive Entertainment: Concept Art Intern- Undergraduate [crawl]",
-    "Sony Interactive Entertainment: Dialogue Intern- Undergraduate [crawl]",
     "Sony Interactive Entertainment: Internship program [crawl]",
     "St. Luke's University Health Network: Student Nurse Extern I- Summer Externship 2027 (Full Time) [workday]",
     "St. Luke's University Health Network: Student Nurse Extern II-Summer Externship 2027 (Full Time) [workday]",
@@ -210,6 +213,7 @@
     "The Hartford: Internships and Early Career Programs – Sophomore Year [crawl]",
     "Thoughtworks: Thoughtworks University: Preparing future leaders [crawl]",
     "Touro College of Pharmacy / Touro University: RxPLORE Summer Academy — First- and Second-Year College Students, 2027 [curated]",
+    "Trimble: Video Production Intern [crawl]",
     "UNCF / Fidelity Investments: Fidelity Scholars Bachelor’s Degree Program (Incoming 2027–2028 Freshmen) [curated]",
     "USAA: Finance Future Leaders Program | Life SFO [crawl]",
     "University of Minnesota Twin Cities — Pre-Health Student Resource Center: Health Profession Pathways — Spring 2027 First-Year Cohort [curated]",
@@ -221,16 +225,13 @@
     "Wellmark Blue Cross and Blue Shield: Health Services Operations & Systems Internship — Insure Your Future, Summer 2027 — Business administration / business process management / health insurance / management information systems: Support population-health systems and business operations, including process documentation, configuration/data tasks, error reporting and regulatory/accreditation tracking. Summer 2027 internship; compensation and duration in weeks are not stated in the role. Eligibility: Current college sophomore studying MIS/CIS, Business Process Management, Business Administration or a related programme. No immigration sponsorship now or in the future; the posting explicitly excludes F-1 CPT/OPT and other listed visa-related work authorization. Deadline: No employer closing date published (current application verified) [curated]",
     "Wellmark Blue Cross and Blue Shield: Human Resources Internship — Insure Your Future, Summer 2027 — Human resources / business administration / communications / journalism / marketing: Work on recruitment, onboarding, professional development and benefits projects, plus research, communications and internship programme coordination. Summer 2027 internship; compensation and duration in weeks are not stated in the role. Eligibility: Current college sophomore pursuing a bachelor’s degree in Human Resources, Business Administration, Communications, Journalism, Marketing or a related programme. No immigration sponsorship now or in the future; the posting explicitly excludes F-1 CPT/OPT and other listed visa-related work authorization. Deadline: No employer closing date published (current application verified) [curated]",
     "Western Kentucky University: Potter College Creative Arts Scholarship — Incoming Freshman Creative Writing Track (2027–28) [curated]",
-    "William Blair: Private Wealth Intern Program [crawl]",
-    "Xcel Energy: Training Coordinator Intern- CO [crawl]",
-    "Yai: Speech-Language Pathology Externship Fall 2026 [workday]",
-    "Zayo: Employee Experience and Insights Program Manager [workday]"
+    "William Blair: Private Wealth Intern Program [crawl]"
   ],
   "companies_in_universe": 3204,
-  "pages_crawled": 12009,
+  "pages_crawled": 11603,
   "tasks": 4463,
   "tasks_skipped_time_budget": 0,
-  "tasks_failed": 125,
+  "tasks_failed": 115,
   "failures": [
     {
       "target": "board: Activision-Blizzard",
@@ -243,13 +244,23 @@
       "error": "HTTP 404 from https://api.lever.co/v0/postings/aofl?mode=json"
     },
     {
+      "target": "board: Amgen",
+      "url": "https://amgen.wd1.myworkdayjobs.com/careers",
+      "error": "HTTP 502 from https://amgen.wd1.myworkdayjobs.com/wday/cxs/amgen/careers/jobs"
+    },
+    {
       "target": "board: Amplify",
       "url": "https://amplify.wd1.myworkdayjobs.com/Amplify_Careers",
       "error": "HTTP 403 from https://amplify.wd1.myworkdayjobs.com/wday/cxs/amplify/Amplify_Careers/jobs"
     },
     {
-      "target": "board: Anduril",
-      "url": "https://boards.greenhouse.io/andurilindustries",
+      "target": "board: Anomali",
+      "url": "https://jobs.lever.co/anomali",
+      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
+    },
+    {
+      "target": "board: Appen",
+      "url": "https://jobs.lever.co/appen-2",
       "error": "APIRequestContext.get: Timeout 20000ms exceeded."
     },
     {
@@ -268,14 +279,19 @@
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/arine/jobs"
     },
     {
-      "target": "board: Athena Health",
-      "url": "https://athenahealth.wd1.myworkdayjobs.com/External",
-      "error": "HTTP 502 from https://athenahealth.wd1.myworkdayjobs.com/wday/cxs/athenahealth/External/jobs"
-    },
-    {
       "target": "board: Atomic Semi",
       "url": "https://jobs.ashbyhq.com/atomicsemi",
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/atomicsemi"
+    },
+    {
+      "target": "board: Baird",
+      "url": "https://baird.wd1.myworkdayjobs.com/careers",
+      "error": "HTTP 502 from https://baird.wd1.myworkdayjobs.com/wday/cxs/baird/careers/jobs"
+    },
+    {
+      "target": "board: Beacon Software",
+      "url": "https://jobs.ashbyhq.com/beaconsoftware",
+      "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/beaconsoftware"
     },
     {
       "target": "board: Breeze Airways",
@@ -368,11 +384,6 @@
       "error": "HTTP 422 from https://donaldson.wd5.myworkdayjobs.com/wday/cxs/donaldson/donaldsoncareers/jobs"
     },
     {
-      "target": "board: DriveTime",
-      "url": "https://drivetime.wd1.myworkdayjobs.com/DriveTime",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Dropbox",
       "url": "https://boards.greenhouse.io/embed",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/embed/jobs"
@@ -388,11 +399,6 @@
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/egra"
     },
     {
-      "target": "board: ENOVIS",
-      "url": "https://enovis.wd5.myworkdayjobs.com/enovis",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Environmental Defense Fund",
       "url": "https://osv-edf.wd5.myworkdayjobs.com/Confidential",
       "error": "HTTP 422 from https://osv-edf.wd5.myworkdayjobs.com/wday/cxs/osv-edf/Confidential/jobs"
@@ -401,11 +407,6 @@
       "target": "board: EPRI",
       "url": "https://vhr-epri.wd1.myworkdayjobs.com/epricareers",
       "error": "HTTP 422 from https://vhr-epri.wd1.myworkdayjobs.com/wday/cxs/vhr-epri/epricareers/jobs"
-    },
-    {
-      "target": "board: Excellus BCBS",
-      "url": "https://lthc.wd1.myworkdayjobs.com/ExcellusBCBSCareers",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Fabletics",
@@ -423,6 +424,11 @@
       "error": "HTTP 422 from https://osv-tifec.wd5.myworkdayjobs.com/wday/cxs/osv-tifec/fanthreesixty/jobs"
     },
     {
+      "target": "board: Firetiger",
+      "url": "https://jobs.ashbyhq.com/firetiger",
+      "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/firetiger"
+    },
+    {
       "target": "board: Fireworks AI",
       "url": "https://boards.greenhouse.io/fireworksai",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/fireworksai/jobs"
@@ -431,11 +437,6 @@
       "target": "board: Forerunner",
       "url": "https://boards.greenhouse.io/forerunner",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/forerunner/jobs"
-    },
-    {
-      "target": "board: Fortrea",
-      "url": "https://fortrea.wd1.myworkdayjobs.com/Fortrea",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Galileo Financial Technologies",
@@ -448,9 +449,19 @@
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/embed/jobs"
     },
     {
+      "target": "board: GenBio AI",
+      "url": "https://jobs.lever.co/genbio",
+      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
+    },
+    {
       "target": "board: Genesis Therapeutics",
       "url": "https://jobs.ashbyhq.com/genesis-therapeutics",
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/genesis-therapeutics"
+    },
+    {
+      "target": "board: Gensler",
+      "url": "https://gensler.wd1.myworkdayjobs.com/genslercareers",
+      "error": "HTTP 401 from https://gensler.wd1.myworkdayjobs.com/wday/cxs/gensler/genslercareers/jobs"
     },
     {
       "target": "board: GlossGenius",
@@ -458,14 +469,9 @@
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/glossgenius/jobs"
     },
     {
-      "target": "board: Grid",
-      "url": "https://jobs.lever.co/Grid",
-      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Gunvor",
       "url": "https://gunvor.wd3.myworkdayjobs.com/Gunvor_Careers",
-      "error": "HTTP 404 from https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs"
+      "error": "HTTP 401 from https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs"
     },
     {
       "target": "board: Hex Technologies",
@@ -476,11 +482,6 @@
       "target": "board: Hitachi",
       "url": "https://gtsgbu.wd3.myworkdayjobs.com/Careers",
       "error": "HTTP 403 from https://gtsgbu.wd3.myworkdayjobs.com/wday/cxs/gtsgbu/Careers/jobs"
-    },
-    {
-      "target": "board: Huron",
-      "url": "https://huron.wd1.myworkdayjobs.com/huroncareers",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
     },
     {
       "target": "board: IA Collaborative",
@@ -593,24 +594,19 @@
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/mentis"
     },
     {
-      "target": "board: Mizuho Securities USA",
-      "url": "https://mizuho.wd1.myworkdayjobs.com/Mizuho_Confidential",
-      "error": "HTTP 520 from https://mizuho.wd1.myworkdayjobs.com/wday/cxs/mizuho/Mizuho_Confidential/jobs"
-    },
-    {
       "target": "board: National Renewable Energy Laboratory",
       "url": "https://nrel.wd5.myworkdayjobs.com/nrel",
       "error": "HTTP 404 from https://nrel.wd5.myworkdayjobs.com/wday/cxs/nrel/nrel/jobs"
     },
     {
-      "target": "board: Neighborly",
-      "url": "https://neighborlybrands.wd1.myworkdayjobs.com/neighborly",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Netflix",
       "url": "https://netflix.wd1.myworkdayjobs.com/Netflix",
       "error": "HTTP 422 from https://netflix.wd1.myworkdayjobs.com/wday/cxs/netflix/Netflix/jobs"
+    },
+    {
+      "target": "board: New Jersey Innovation Authority",
+      "url": "https://jobs.lever.co/NJStateOfficeofInnovation",
+      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Nio",
@@ -658,16 +654,6 @@
       "error": "HTTP 422 from https://vhr-pbs.wd5.myworkdayjobs.com/wday/cxs/vhr-pbs/PBSCareers/jobs"
     },
     {
-      "target": "board: Philips",
-      "url": "https://philips.wd3.myworkdayjobs.com/jobs-and-careers",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
-      "target": "board: Plastipak",
-      "url": "https://plastipak.wd1.myworkdayjobs.com/Plastipak",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Plexus",
       "url": "https://plexus.wd5.myworkdayjobs.com/Plexus_Careers",
       "error": "HTTP 422 from https://plexus.wd5.myworkdayjobs.com/wday/cxs/plexus/Plexus_Careers/jobs"
@@ -683,11 +669,6 @@
       "error": "HTTP 422 from https://procasemanagement.wd1.myworkdayjobs.com/wday/cxs/procasemanagement/PCM/jobs"
     },
     {
-      "target": "board: Rakuten",
-      "url": "https://rakuten.wd1.myworkdayjobs.com/RakutenRewards",
-      "error": "HTTP 502 from https://rakuten.wd1.myworkdayjobs.com/wday/cxs/rakuten/RakutenRewards/jobs"
-    },
-    {
       "target": "board: Realtor.com",
       "url": "https://boards.greenhouse.io/rdccareers",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/rdccareers/jobs"
@@ -701,11 +682,6 @@
       "target": "board: Red Bull Advanced Technologies",
       "url": "https://redbulltechnology.wd3.myworkdayjobs.com/RB_Racing",
       "error": "HTTP 422 from https://redbulltechnology.wd3.myworkdayjobs.com/wday/cxs/redbulltechnology/RB_Racing/jobs"
-    },
-    {
-      "target": "board: Resolve Tech Solutions",
-      "url": "https://resolvetech.wd1.myworkdayjobs.com/rts",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Ribbon",
@@ -738,14 +714,9 @@
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/seamlessai/jobs"
     },
     {
-      "target": "board: Securian Financial Group",
-      "url": "https://hq.wd12.myworkdayjobs.com/Securian_External",
+      "target": "board: Shaw Industries Group",
+      "url": "https://shawinc.wd1.myworkdayjobs.com/External",
       "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
-      "target": "board: Sensata",
-      "url": "https://sensata.wd1.myworkdayjobs.com/Sensata-Careers",
-      "error": "HTTP 520 from https://sensata.wd1.myworkdayjobs.com/wday/cxs/sensata/Sensata-Careers/jobs"
     },
     {
       "target": "board: Squarepoint Capital",
@@ -756,6 +727,11 @@
       "target": "board: StepStone Group",
       "url": "https://boards.greenhouse.io/embed",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/embed/jobs"
+    },
+    {
+      "target": "board: SunSource",
+      "url": "https://jobs.lever.co/sunsrce",
+      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Superbet",
@@ -778,14 +754,14 @@
       "error": "HTTP 404 from https://livenation.wd503.myworkdayjobs.com/wday/cxs/livenation/en/jobs"
     },
     {
+      "target": "board: Tilde Research",
+      "url": "https://jobs.ashbyhq.com/tilderesearch",
+      "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/tilderesearch"
+    },
+    {
       "target": "board: Toast",
       "url": "https://boards.greenhouse.io/embed",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/embed/jobs"
-    },
-    {
-      "target": "board: Toyota Research Institute",
-      "url": "https://jobs.lever.co/tri",
-      "error": "APIRequestContext.get: Timeout 20000ms exceeded."
     },
     {
       "target": "board: Transcarent",
@@ -808,11 +784,6 @@
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/embed/jobs"
     },
     {
-      "target": "board: US Foods",
-      "url": "https://usfoods.wd1.myworkdayjobs.com/usfoodscareersExternal",
-      "error": "APIRequestContext.post: Timeout 20000ms exceeded."
-    },
-    {
       "target": "board: Veeda AI",
       "url": "https://jobs.ashbyhq.com/veeda-labs",
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/veeda-labs"
@@ -833,29 +804,9 @@
       "error": "HTTP 404 from https://api.ashbyhq.com/posting-api/job-board/whatnot"
     },
     {
-      "target": "board: Winland Foods",
-      "url": "https://winlandfoods.wd1.myworkdayjobs.com/external",
-      "error": "HTTP 520 from https://winlandfoods.wd1.myworkdayjobs.com/wday/cxs/winlandfoods/external/jobs"
-    },
-    {
       "target": "board: Withum",
       "url": "https://boards.greenhouse.io/campusopportunities",
       "error": "HTTP 404 from https://boards-api.greenhouse.io/v1/boards/campusopportunities/jobs"
-    },
-    {
-      "target": "crawl: Bio-Rad Laboratories",
-      "url": "bio-rad.com",
-      "error": "TimeoutError"
-    },
-    {
-      "target": "crawl: Nutanix",
-      "url": "nutanix.com",
-      "error": "TimeoutError"
-    },
-    {
-      "target": "crawl: Zions Bank",
-      "url": "zionsbank.com",
-      "error": "TimeoutError"
     }
   ]
 }
